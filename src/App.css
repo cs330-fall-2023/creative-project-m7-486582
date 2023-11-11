@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+  background-image: url('../public/images/paper-background.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100vw;
+  height: 100vh;
+}
