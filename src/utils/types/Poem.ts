@@ -13,4 +13,5 @@ export type PoemGraphics = {
     colorIconSrc: string,
     bwIconSrc: string,
     textColor: string,
+    alt: string,
 }

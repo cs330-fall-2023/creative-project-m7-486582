@@ -138,7 +138,7 @@ table {
 
 .App {
   text-align: center;
-  background-image: url('../public/images/paper-background.jpeg');
+  background-image: url('./images/paper-background.jpeg');
   background-repeat: no-repeat;
   background-size: auto;
   width: 100vw;

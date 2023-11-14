@@ -26,11 +26,13 @@
 }
 
 .link {
-    cursor: pointer
+    cursor: pointer;
+    text-decoration: underline solid transparent;
+    transition: all 0.5s ease;
 }
 
 .link:hover {
-    text-decoration: underline;
+    text-decoration: underline solid black;
 }
 
 .first_line {

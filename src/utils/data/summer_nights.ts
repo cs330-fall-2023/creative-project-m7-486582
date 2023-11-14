@@ -1,7 +1,7 @@
 import { Poem, PoemGraphics } from "../types/Poem";
-import backgroundSrc from '../../../public/images/backgrounds/summer-nights-background-noise.png'
-import colorIconSrc from '../../../public/images/colorIcons/poem-nav-icons-summernights.png'
-import bwIconSrc from '../../../public/images/bwIcons/poem-nav-icons-summernights-bw.png'
+import backgroundSrc from '../../images/backgrounds/summer-nights-background-noise.png'
+import colorIconSrc from '../../images/colorIcons/poem-nav-icons-summernights.png'
+import bwIconSrc from '../../images/bwIcons/poem-nav-icons-summernights-bw.png'
 
 const summerNights: Poem = [
     {
@@ -207,7 +207,8 @@ const summerNightsGraphics: PoemGraphics = {
     backgroundSrc: backgroundSrc,
     colorIconSrc: colorIconSrc,
     bwIconSrc: bwIconSrc,
-    textColor: "#57336A"
+    textColor: "#57336A",
+    alt: "Summer Nights Icon"
 }
 
 export { summerNightsGraphics, summerNights };

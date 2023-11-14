@@ -38,3 +38,33 @@
 .placeholder_line {
     color: gray;
 }
+
+.poem_icons {
+    position: absolute;
+}
+
+.poem_icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s ease;
+    width: 100%;
+    height: 100%;
+}
+
+.poem_icon_active {
+    color: black;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+.poem_icon_inactive {
+    opacity: 0;
+}
+
+.poem_icon_container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
