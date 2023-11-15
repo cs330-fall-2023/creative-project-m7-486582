@@ -148,6 +148,7 @@ table {
 
 .page {
   opacity: 0;
+  overflow: hidden;
   transition: all 0.5s ease;
 }
 

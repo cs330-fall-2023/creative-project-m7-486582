@@ -3,6 +3,7 @@ import UserPoem from '../components/poem_creation/UserPoem'
 import { Poem } from '../utils/types/Poem'
 import { allPoems, allPoemGraphics } from '../utils/data/poems_wrapper'
 import PoemIcon from '../components/poem_creation/PoemIcon'
+import styles from '../styles/PoemsPage.module.css'
 
 const PoemsPage: FC = () => {
     const [lines, setLines] = useState<Poem>([])
@@ -12,7 +13,7 @@ const PoemsPage: FC = () => {
                 lines={lines}
                 setLines={setLines}
             />
-            <div style={{position: 'absolute', top: '16px', right: '16px', width: '50px', height: '50px'}}>
+            <div className={styles.poem_icons}>
                 {
                     allPoemGraphics.map((poemGraphics) => {
                         return (
