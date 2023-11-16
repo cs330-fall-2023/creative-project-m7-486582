@@ -40,14 +40,15 @@
 }
 
 .poem_icons {
+    z-index: 2;
     position: absolute;
     top: 16px;
     right: 24px;
     width: 60px;
-    height: 90%;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    align-items: center;
 }
 
 .poem_icon {
@@ -55,6 +56,7 @@
     transition: all 0.5s ease;
     width: 100%;
     height: auto;
+    cursor: pointer;
 }
 
 .poem_icon_color {

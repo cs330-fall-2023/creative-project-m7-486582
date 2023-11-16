@@ -9,10 +9,10 @@ import { friendship, friendshipGraphics } from "./friendship";
 import { desire, desireGraphics } from "./desire";
 
 const allPoems = [
-    summerNights,
-    fireflies,
     heartIcon,
+    fireflies,
     neverendingSpring,
+    summerNights,
     mirrorMirror,
     lotusEater,
     coldLeaves,
@@ -21,10 +21,10 @@ const allPoems = [
 ]
 
 const allPoemGraphics = [
-    summerNightsGraphics,
-    firefliesGraphics,
     heartIconGraphics,
+    firefliesGraphics,
     neverendingSpringGraphics,
+    summerNightsGraphics,
     mirrorMirrorGraphics,
     lotusEaterGraphics,
     coldLeavesGraphics,
