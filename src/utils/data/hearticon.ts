@@ -1,214 +1,206 @@
 import { Poem, PoemGraphics } from "../types/Poem";
-import backgroundSrc from '../../images/backgrounds/summer-nights-background-noise.png'
-import colorIconSrc from '../../images/colorIcons/poem-nav-icons-summernights.png'
-import bwIconSrc from '../../images/bwIcons/poem-nav-icons-summernights-bw.png'
+import backgroundSrc from '../../images/backgrounds/instant-background-noise.png'
+import colorIconSrc from '../../images/colorIcons/poem-nav-icons-hearticon.png'
+import bwIconSrc from '../../images/bwIcons/poem-nav-icons-hearticon-bw.png'
 
-const summerNights: Poem = [
+const heartIcon: Poem = [
     {
-        text: "summer nights",
+        text: "hearticon.png",
         isTitle: true,
         isLink: false,
         isNewStanza: true,
         isFirstLine: false
     },
     {
-        text: "by RuthAnne Dunn",
+        text: "by Katherine Han",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
-
     {
-        text: "(twist the key, turn on the lights)",
+        text: "instant gratification",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: true
     },
     {
-        text: "these summer nights",
+        text: "in the form of little hearts",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "removed from space and time",
+        text: "showered by compliments",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "the music makes me feel alive",
+        text: "in the comments others post",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "so gorgeous, so stunning, so beautiful",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "they tell you",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "all the words we wish to hear",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "but cannot bear to tell ourselves",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "the wrinkles, the marks, the imperfections",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "are all that we can see in ourselves",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "we look at their pictures and envy them so",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: false
     },
     {
-        text: "pavement flows,",
+        text: "thinking they're luckier",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "thinking they're happier",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "in response we post these snapshots",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: `showing them we're doing "fine"`,
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "better, in fact, than they are",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "we only show the highlights",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "since they don't want the full story",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "increase the exposure",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: false
     },
     {
-        text: "peripheral",
+        text: "lower the contrast",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "And the song,",
+        text: "and add a little warmth",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "it knows me",
+        text: "now it's perfect just as it should be",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "an intimate acquaintance",
+        text: "stop scrolling past and give me a like",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "a tipping point, past and future",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "contained in this infinite moment",
+        text: "it might make me feel better",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "this   wanting",
+        text: "for an instant",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "not quite tangible, just out of reach and yet",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "This feels like all that is real.",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "This is living",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "I just can't grasp it-",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "car-speaker melody",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "(twist the dial, turn it up)",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "a whisper",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "a dream",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "And dreams aren't only for sleeping",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "but they mostly come like this:",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "summer nights, summer nights",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "the most beautiful confusion",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "the sweetest yearning",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "Life is before me",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
         isFirstLine: false
     },
 ]
 
-const summerNightsGraphics: PoemGraphics = {
+const heartIconGraphics: PoemGraphics = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: "#57336A",
-    alt: "Summer Nights Icon"
+    textColor: "green",
+    alt: "Heart Icon",
 }
 
-export { summerNightsGraphics, summerNights };
+export { heartIcon, heartIconGraphics }

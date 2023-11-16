@@ -16,6 +16,7 @@ const PoemsPage: FC = () => {
             <div className={styles.poem_icons}>
                 {
                     allPoemGraphics.map((poemGraphics) => {
+                        console.log(poemGraphics)
                         return (
                             <PoemIcon 
                                 key={poemGraphics.alt}
