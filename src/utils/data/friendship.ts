@@ -1,223 +1,172 @@
-import { Poem, PoemGraphics } from "../types/Poem";
-import backgroundSrc from '../../images/backgrounds/summer-nights-background-noise.png'
-import colorIconSrc from '../../images/colorIcons/poem-nav-icons-summernights.png'
-import bwIconSrc from '../../images/bwIcons/poem-nav-icons-summernights-bw.png'
+import { Poem, PoemGraphics } from '../types/Poem'
+import backgroundSrc from '../../images/backgrounds/friendship-background-noise.png'
+import colorIconSrc from '../../images/colorIcons/poem-nav-icons-friendship.png'
+import bwIconSrc from '../../images/bwIcons/poem-nav-icons-friendship-bw.png'
 
-const summerNights: Poem = [
+const friendship: Poem = [
     {
-        text: "summer nights",
+        text: "Friendship",
         isTitle: true,
         isLink: false,
-        isNewStanza: true,
+        isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "by RuthAnne Dunn",
+        text: "by Flo Lee",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
-
     {
-        text: "(twist the key, turn on the lights)",
+        text: "On the bus ride back I stared",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: true
     },
     {
-        text: "these summer nights",
+        text: "At the butterfly wings dangling",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "removed from space and time",
+        text: "On a silver chain we spent",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "the music makes me feel alive",
+        text: "Two hours scrounging for",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "And my heart fluttered so much",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "I thought it would beam right into",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "A crescent smiling back from the sky",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "Black interlaced with dainty silver",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "Indigo blending into cheesy orange",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "Because we lauged when we retraced",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: false
     },
     {
-        text: "pavement flows,",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "peripheral",
+        text: "Our steps because it was hard",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "And the song,",
+        text: "It was hard navigating back and forth",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "it knows me",
+        text: "It was hard to slump in molasses heat",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "an intimate acquaintance",
+        text: "It was hard to find the perfect quartet",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "a tipping point, past and future",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "contained in this infinite moment",
+        text: "It was hard but we laughed because",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "this   wanting",
+        text: "The simple hardship reminded us that",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "not quite tangible, just out of reach and yet",
+        text: "We only had so much time to fulfill",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "This feels like all that is real.",
+        text: "The dreams we'd spilled into each other",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "This is living",
+        text: "And we laughed because we walked",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "I just can't grasp it-",
+        text: "Along the curbsides where merciless",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "car-speaker melody",
+        text: "Drivers almost hit us and we could",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "(twist the dial, turn it up)",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "a whisper",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "a dream",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "And dreams aren't only for sleeping",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "but they mostly come like this:",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "summer nights, summer nights",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "the most beautiful confusion",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "the sweetest yearning",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "Life is before me",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "(twist the key, turn off the lights)",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "these summer nights",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-
-    {
-        text: "can only    suspend    space and time",
+        text: "Only think about hoping for next time",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
@@ -225,12 +174,12 @@ const summerNights: Poem = [
     },
 ]
 
-const summerNightsGraphics: PoemGraphics = {
+const friendshipGraphics: PoemGraphics = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: "#57336A",
-    alt: "Summer Nights Icon"
+    textColor: 'green',
+    alt: 'Friendship'
 }
 
-export { summerNightsGraphics, summerNights };
+export { friendship, friendshipGraphics }

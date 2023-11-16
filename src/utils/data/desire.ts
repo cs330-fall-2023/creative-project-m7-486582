@@ -1,223 +1,172 @@
-import { Poem, PoemGraphics } from "../types/Poem";
-import backgroundSrc from '../../images/backgrounds/summer-nights-background-noise.png'
-import colorIconSrc from '../../images/colorIcons/poem-nav-icons-summernights.png'
-import bwIconSrc from '../../images/bwIcons/poem-nav-icons-summernights-bw.png'
+import { Poem, PoemGraphics } from '../types/Poem'
+import backgroundSrc from '../../images/backgrounds/desire-background-noise.png'
+import colorIconSrc from '../../images/colorIcons/poem-nav-icons-desire.png'
+import bwIconSrc from '../../images/bwIcons/poem-nav-icons-desire-bw.png'
 
-const summerNights: Poem = [
+const desire: Poem = [
     {
-        text: "summer nights",
+        text: "Desire",
         isTitle: true,
         isLink: false,
-        isNewStanza: true,
+        isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "by RuthAnne Dunn",
+        text: "by Flo Lee",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
-
     {
-        text: "(twist the key, turn on the lights)",
+        text: "Treacherous is the trek back to normalcy",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: true
     },
     {
-        text: "these summer nights",
+        text: "And to be honest I'm not sure we're even",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "removed from space and time",
+        text: "Sludging the right way or if we were",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "the music makes me feel alive",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "pavement flows,",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "peripheral",
+        text: "Ever at home there in the first place",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "And the song,",
+        text: "But I wanted [I needed] to stop hurting",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "it knows me",
+        text: "The pain wouldn't ebb away and I",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "an intimate acquaintance",
+        text: "Couldn't do anything but remember",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "a tipping point, past and future",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "contained in this infinite moment",
+        text: "How much it hurt [because I cared]",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "this   wanting",
+        text: "Sometimes love cuts more more",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "not quite tangible, just out of reach and yet",
+        text: "Than you'll feel it bleed and what",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "This feels like all that is real.",
+        text: "I thought was a papercut wrecked",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "This is living",
+        text: "My sense of reality and this pain",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "I just can't grasp it-",
+        text: "This heaving pain more of a constant",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "car-speaker melody",
+        text: "Cloud of smoke flooding my vision",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "(twist the dial, turn it up)",
+        text: "Than just a mere flesh wound",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "a whisper",
+        text: "Scremed into my lungs [so I suffocated]",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "a dream",
+        text: "Stop stop stop stop before I fall off",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "And dreams aren't only for sleeping",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "but they mostly come like this:",
+        text: "The see-saw off the cliff of whatever",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "summer nights, summer nights",
+        text: "We were supposed to make this",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "the most beautiful confusion",
+        text: "The quiet here is too quiet where is",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "the sweetest yearning",
+        text: "White noise all I have is hunger and",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "Life is before me",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "(twist the key, turn off the lights)",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "these summer nights",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-
-    {
-        text: "can only    suspend    space and time",
+        text: "Nothing to remind me I will be okay",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
@@ -225,12 +174,12 @@ const summerNights: Poem = [
     },
 ]
 
-const summerNightsGraphics: PoemGraphics = {
+const desireGraphics: PoemGraphics = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: "#57336A",
-    alt: "Summer Nights Icon"
+    textColor: 'blue',
+    alt: "Desire"
 }
 
-export { summerNightsGraphics, summerNights };
+export { desire, desireGraphics }

@@ -1,14 +1,14 @@
 import { Poem, PoemGraphics } from "../types/Poem";
-import backgroundSrc from '../../images/backgrounds/summer-nights-background-noise.png'
-import colorIconSrc from '../../images/colorIcons/poem-nav-icons-summernights.png'
-import bwIconSrc from '../../images/bwIcons/poem-nav-icons-summernights-bw.png'
+import backgroundSrc from '../../images/backgrounds/mirror-background-noise.png'
+import colorIconSrc from '../../images/colorIcons/poem-nav-icons-mirror.png'
+import bwIconSrc from '../../images/bwIcons/poem-nav-icons-mirror-bw.png'
 
-const summerNights: Poem = [
+const mirrorMirror: Poem = [
     {
-        text: "summer nights",
+        text: "mirror mirror",
         isTitle: true,
         isLink: false,
-        isNewStanza: true,
+        isNewStanza: false,
         isFirstLine: false
     },
     {
@@ -18,206 +18,205 @@ const summerNights: Poem = [
         isNewStanza: false,
         isFirstLine: false
     },
-
     {
-        text: "(twist the key, turn on the lights)",
+        text: "streetlight glow",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: true
     },
     {
-        text: "these summer nights",
+        text: "(dorm window)",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "removed from space and time",
+        text: "feeling restless,",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "the music makes me feel alive",
+        text: "much too awake for 12:22 am so",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "I lay down and look in the mirror",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "and inspect her.",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "a fleeting moment of vanity, maybe",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "but at least this time we like what we see,",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "the girl in the mirror and me.",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "and I wonder what other people perceive",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: false
     },
     {
-        text: "pavement flows,",
+        text: "image, impression and   personality",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "all in all, I'm   happy",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "peripheral",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "And the song,",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "it knows me",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "an intimate acquaintance",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "a tipping point, past and future",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "contained in this infinite moment",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "this   wanting",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "not quite tangible, just out of reach and yet",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "This feels like all that is real.",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "This is living",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "I just can't grasp it-",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "car-speaker melody",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "(twist the dial, turn it up)",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "a whisper",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "a dream",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "And dreams aren't only for sleeping",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "but they mostly come like this:",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "summer nights, summer nights",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "the most beautiful confusion",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "the sweetest yearning",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "Life is before me",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "(twist the key, turn off the lights)",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "these summer nights",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
         isFirstLine: false
     },
 
     {
-        text: "can only    suspend    space and time",
+        text: "good friends,",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "they look beyond exteriority",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "(they see   me   and not just   her)",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "and besides that I do feel",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: true,
+        isFirstLine: false
+    },
+    {
+        text: "pretty",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "in the mirror, tonight",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "and I sit up,",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "turn to the window",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "(the lights, aglow)",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "there's a world out there,",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: true,
+        isFirstLine: false
+    },
+    {
+        text: "beyond my little room,",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "beyond the mirror frame,",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "and all else",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "fades away.",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "post script",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: true,
+        isFirstLine: false
+    },
+    {
+        text: "beauty is fleeting",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: true,
+        isFirstLine: false
+    },
+    {
+        text: "but I still like to feel pretty",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
@@ -225,12 +224,12 @@ const summerNights: Poem = [
     },
 ]
 
-const summerNightsGraphics: PoemGraphics = {
+const mirrorMirrorGraphics: PoemGraphics = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: "#57336A",
-    alt: "Summer Nights Icon"
+    textColor: "black",
+    alt: "mirror mirror"
 }
 
-export { summerNightsGraphics, summerNights };
+export { mirrorMirror, mirrorMirrorGraphics }

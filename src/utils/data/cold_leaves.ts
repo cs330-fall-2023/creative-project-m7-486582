@@ -1,223 +1,172 @@
-import { Poem, PoemGraphics } from "../types/Poem";
-import backgroundSrc from '../../images/backgrounds/summer-nights-background-noise.png'
-import colorIconSrc from '../../images/colorIcons/poem-nav-icons-summernights.png'
-import bwIconSrc from '../../images/bwIcons/poem-nav-icons-summernights-bw.png'
+import { Poem, PoemGraphics } from '../types/Poem'
+import backgroundSrc from '../../images/backgrounds/cold-leaves-background-noise.png'
+import colorIconSrc from '../../images/colorIcons/poem-nav-icons-coldleaves.png'
+import bwIconSrc from '../../images/bwIcons/poem-nav-icons-coldleaves-bw.png'
 
-const summerNights: Poem = [
+const coldLeaves: Poem = [
     {
-        text: "summer nights",
+        text: "The Cold Doesn't Leave in Spring",
         isTitle: true,
         isLink: false,
-        isNewStanza: true,
+        isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "by RuthAnne Dunn",
+        text: "by Flo Lee",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
-
     {
-        text: "(twist the key, turn on the lights)",
+        text: "You feel like sunshine with every fiber",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: true
     },
     {
-        text: "these summer nights",
+        text: "Of your being. Warmth seeps",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "removed from space and time",
+        text: "Into each inhale and kisses your fingertips",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "the music makes me feel alive",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "pavement flows,",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "peripheral",
+        text: "Your hugs sing of hot chocolate with marshamallows,",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "And the song,",
+        text: "Of cozying up",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "it knows me",
+        text: "In the blanket of my favorite sweater-",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "an intimate acquaintance",
+        text: "With a smile that rises like the dawn",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "a tipping point, past and future",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "contained in this infinite moment",
+        text: "I'm scared of when",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "this   wanting",
+        text: "It falls like a suddent sunset,",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "not quite tangible, just out of reach and yet",
+        text: "Drifting away into inky shadow without",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "This feels like all that is real.",
+        text: "Your usual goodbye.",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "This is living",
+        text: "But please remember that",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "I just can't grasp it-",
+        text: "Just because the sun in shining",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "car-speaker melody",
+        text: "Doesn't mean it needs to halt the winter",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "(twist the dial, turn it up)",
+        text: "The sun's beams will not melt",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "a whisper",
+        text: "Frigid frost forming over grass;",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "a dream",
+        text: "It will not thaw the biting chill",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "And dreams aren't only for sleeping",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "but they mostly come like this:",
+        text: "Of the icecaps or snowflake wind",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "summer nights, summer nights",
+        text: "And that's okay.",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "the most beautiful confusion",
+        text: "You are like sunshine,",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "the sweetest yearning",
+        text: "But you don't need to",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "Life is before me",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "(twist the key, turn off the lights)",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "these summer nights",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-
-    {
-        text: "can only    suspend    space and time",
+        text: "Force yourself to warm the world.",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
@@ -225,12 +174,12 @@ const summerNights: Poem = [
     },
 ]
 
-const summerNightsGraphics: PoemGraphics = {
+const coldLeavesGraphics: PoemGraphics = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: "#57336A",
-    alt: "Summer Nights Icon"
+    textColor: 'blue',
+    alt: "The Cold Doesn't Leave in Spring"
 }
 
-export { summerNightsGraphics, summerNights };
+export { coldLeaves, coldLeavesGraphics }

@@ -1,14 +1,14 @@
 import { Poem, PoemGraphics } from "../types/Poem";
-import backgroundSrc from '../../images/backgrounds/summer-nights-background-noise.png'
-import colorIconSrc from '../../images/colorIcons/poem-nav-icons-summernights.png'
-import bwIconSrc from '../../images/bwIcons/poem-nav-icons-summernights-bw.png'
+import backgroundSrc from '../../images/backgrounds/cold-leaves-background-noise.png'
+import colorIconSrc from '../../images/colorIcons/poem-nav-icons-lotus.png'
+import bwIconSrc from '../../images/bwIcons/poem-nav-icons-lotus-bw.png'
 
-const summerNights: Poem = [
+const lotusEater: Poem = [
     {
-        text: "summer nights",
+        text: "Lotus-Eater",
         isTitle: true,
         isLink: false,
-        isNewStanza: true,
+        isNewStanza: false,
         isFirstLine: false
     },
     {
@@ -18,206 +18,183 @@ const summerNights: Poem = [
         isNewStanza: false,
         isFirstLine: false
     },
-
     {
-        text: "(twist the key, turn on the lights)",
+        text: "She hides in all the noise,",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: true
     },
     {
-        text: "these summer nights",
+        text: "(a busy mind full of nothing means you don't have to think)",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "removed from space and time",
+        text: "unmoving in the empty room",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "the music makes me feel alive",
+        text: "she stifles the call",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "to push aside the clamor",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "to hear an ounce of reality",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "Can't listen too hard",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: false
     },
     {
-        text: "pavement flows,",
+        text: "(distract, forget, consume, consume)",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "can't push it all away        can't get up",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "because the noise and the rush and the flood,",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "it's her armor.",
+        isTitle: false,
+        isLink: false,
+        isNewStanza: false,
+        isFirstLine: false
+    },
+    {
+        text: "An island-dweller these past hours",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: false
     },
     {
-        text: "peripheral",
+        text: "(isolated refuge of her own creation)",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "And the song,",
+        text: "she treats life's expectations like sand",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "it knows me",
+        text: "hopes they can slip through her fingers, grain by grain",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "an intimate acquaintance",
+        text: "because it's easier to ignore, to pretend.",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "a tipping point, past and future",
+        text: "11pm sushi at the coffee table",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: false
     },
     {
-        text: "contained in this infinite moment",
+        text: "she's not ready to leave her oasis",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "this   wanting",
+        text: "(transient, forged)",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "not quite tangible, just out of reach and yet",
+        text: "she's hearing past the noise",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "This feels like all that is real.",
+        text: "a lotus less potent than she hoped",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "This is living",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "I just can't grasp it-",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "car-speaker melody",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "(twist the dial, turn it up)",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "a whisper",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "a dream",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "And dreams aren't only for sleeping",
+        text: "here comes the call",
         isTitle: false,
         isLink: false,
         isNewStanza: true,
         isFirstLine: false
     },
     {
-        text: "but they mostly come like this:",
+        text: "(get up, get UP)",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "summer nights, summer nights",
+        text: "here comes the clarity",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "the most beautiful confusion",
+        text: "herecomes her greatest fear",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
         isFirstLine: false
     },
     {
-        text: "the sweetest yearning",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-    {
-        text: "Life is before me",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "(twist the key, turn off the lights)",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: true,
-        isFirstLine: false
-    },
-    {
-        text: "these summer nights",
-        isTitle: false,
-        isLink: false,
-        isNewStanza: false,
-        isFirstLine: false
-    },
-
-    {
-        text: "can only    suspend    space and time",
+        text: "reality",
         isTitle: false,
         isLink: false,
         isNewStanza: false,
@@ -225,12 +202,12 @@ const summerNights: Poem = [
     },
 ]
 
-const summerNightsGraphics: PoemGraphics = {
+const lotusEaterGraphics: PoemGraphics = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: "#57336A",
-    alt: "Summer Nights Icon"
+    textColor: 'blue',
+    alt: 'Lotus-Eater'
 }
 
-export { summerNightsGraphics, summerNights };
+export { lotusEater, lotusEaterGraphics }
