@@ -1,9 +1,9 @@
-import { Poem, PoemGraphics } from '../types/Poem'
+import { PoemType, PoemGraphicsType } from '../types/PoemTypes'
 import backgroundSrc from '../../images/backgrounds/desire-background-noise.png'
 import colorIconSrc from '../../images/colorIcons/poem-nav-icons-desire.png'
 import bwIconSrc from '../../images/bwIcons/poem-nav-icons-desire-bw.png'
 
-const desire: Poem = [
+const desire: PoemType = [
     {
         text: "Desire",
         isTitle: true,
@@ -174,7 +174,7 @@ const desire: Poem = [
     },
 ]
 
-const desireGraphics: PoemGraphics = {
+const desireGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,

@@ -1,9 +1,9 @@
-import { Poem, PoemGraphics } from "../types/Poem";
+import { PoemType, PoemGraphicsType } from "../types/PoemTypes";
 import backgroundSrc from '../../images/backgrounds/summer-nights-background-noise.png'
 import colorIconSrc from '../../images/colorIcons/poem-nav-icons-summernights.png'
 import bwIconSrc from '../../images/bwIcons/poem-nav-icons-summernights-bw.png'
 
-const summerNights: Poem = [
+const summerNights: PoemType = [
     {
         text: "summer nights",
         isTitle: true,
@@ -225,7 +225,7 @@ const summerNights: Poem = [
     },
 ]
 
-const summerNightsGraphics: PoemGraphics = {
+const summerNightsGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,

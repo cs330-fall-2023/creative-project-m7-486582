@@ -1,9 +1,9 @@
-import { Poem, PoemGraphics } from "../types/Poem";
+import { PoemType, PoemGraphicsType } from "../types/PoemTypes";
 import backgroundSrc from '../../images/backgrounds/instant-background-noise.png'
 import colorIconSrc from '../../images/colorIcons/poem-nav-icons-hearticon.png'
 import bwIconSrc from '../../images/bwIcons/poem-nav-icons-hearticon-bw.png'
 
-const heartIcon: Poem = [
+const heartIcon: PoemType = [
     {
         text: "hearticon.png",
         isTitle: true,
@@ -195,7 +195,7 @@ const heartIcon: Poem = [
     },
 ]
 
-const heartIconGraphics: PoemGraphics = {
+const heartIconGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,

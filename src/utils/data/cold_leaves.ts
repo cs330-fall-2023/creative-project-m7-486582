@@ -1,9 +1,9 @@
-import { Poem, PoemGraphics } from '../types/Poem'
+import { PoemType, PoemGraphicsType } from '../types/PoemTypes'
 import backgroundSrc from '../../images/backgrounds/cold-leaves-background-noise.png'
 import colorIconSrc from '../../images/colorIcons/poem-nav-icons-coldleaves.png'
 import bwIconSrc from '../../images/bwIcons/poem-nav-icons-coldleaves-bw.png'
 
-const coldLeaves: Poem = [
+const coldLeaves: PoemType = [
     {
         text: "The Cold Doesn't Leave in Spring",
         isTitle: true,
@@ -174,7 +174,7 @@ const coldLeaves: Poem = [
     },
 ]
 
-const coldLeavesGraphics: PoemGraphics = {
+const coldLeavesGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,

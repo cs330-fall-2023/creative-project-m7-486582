@@ -1,11 +1,11 @@
 import React, { FC, Dispatch, SetStateAction } from 'react'
-import { Poem } from '../../utils/types/Poem'
+import { PoemType } from '../../utils/types/PoemTypes'
 import styles from '../../styles/PoemsPage.module.css'
 import PlaceholderPoem from './PlaceholderPoem'
 
 interface Props {
-    lines: Poem
-    setLines: Dispatch<SetStateAction<Poem>>
+    lines: PoemType
+    setLines: Dispatch<SetStateAction<PoemType>>
 }
 
 const UserPoem: FC<Props> = ({

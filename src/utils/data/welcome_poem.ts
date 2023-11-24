@@ -1,6 +1,6 @@
-import { Poem } from "../types/Poem"
+import { PoemType } from "../types/PoemTypes"
 
-const welcomePoem: Poem = [
+const welcomePoem: PoemType = [
 
     // Title stanza
     {

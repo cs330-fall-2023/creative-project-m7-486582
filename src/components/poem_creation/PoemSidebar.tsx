@@ -1,12 +1,14 @@
 import React, { FC } from 'react'
 import styles from '../../styles/PoemSidebar.module.css'
-import { Poem, PoemGraphics } from '../../utils/types/Poem';
 import classNames from 'classnames';
 import defaultBackground from '../../images/backgrounds/cold-leaves-background-noise.png'
+import { PoemType, PoemGraphicsType } from '../../utils/types/PoemTypes';
+import Poem from './Poem';
+
 
 interface Props {
-    poem: Poem | undefined,
-    poemGraphics: PoemGraphics | undefined,
+    poem: PoemType | undefined,
+    poemGraphics: PoemGraphicsType | undefined,
     isSidebarOpen: boolean
 }
 
@@ -21,7 +23,10 @@ const PoemSidebar: FC<Props> = ({
 
     return (
         <div className={cx(styles.sidebar_container, isSidebarOpen && styles.active)} style={{backgroundImage: `url(${backgroundSrc})`}}>
-            <div className={styles.poem}>A</div>
+            <Poem
+                poem={poem}
+                poemGraphics={poemGraphics}
+            />
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, Dispatch, SetStateAction } from 'react'
 import FadeText from '../components/welcome/FadeText'
-import { Poem } from '../utils/types/Poem'
+import { PoemType } from '../utils/types/PoemTypes'
 import styles from '../styles/WelcomePage.module.css'
 import FadeIn from 'react-fade-in/lib/FadeIn'
 
@@ -12,7 +12,7 @@ interface Props {
 
 const WelcomePage: FC<Props> = ({ setCurrentPage }) => {
 
-    const [visiblePoem, setVisiblePoem] = React.useState<Poem>([])
+    const [visiblePoem, setVisiblePoem] = React.useState<PoemType>([])
     const [currentLine, setCurrentLine] = React.useState<number>(0)
 
     useEffect(() => {

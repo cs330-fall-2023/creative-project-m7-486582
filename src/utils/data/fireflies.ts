@@ -1,9 +1,9 @@
-import { Poem, PoemGraphics } from "../types/Poem";
+import { PoemType, PoemGraphicsType } from "../types/PoemTypes";
 import backgroundSrc from '../../images/backgrounds/fireflies-background.png'
 import colorIconSrc from '../../images/colorIcons/poem-nav-icons-firefly.png'
 import bwIconSrc from '../../images/bwIcons/poem-nav-icons-firefly-bw.png'
 
-const fireflies: Poem = [
+const fireflies: PoemType = [
     {
         text: "Fireflies",
         isTitle: true,
@@ -195,7 +195,7 @@ const fireflies: Poem = [
     },
 ]
 
-const firefliesGraphics: PoemGraphics = {
+const firefliesGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,

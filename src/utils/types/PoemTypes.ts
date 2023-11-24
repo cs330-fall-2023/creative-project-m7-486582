@@ -1,4 +1,4 @@
-export type Line = {
+export type LineType = {
     text: string,
     isTitle: boolean,
     isLink: boolean,
@@ -6,9 +6,9 @@ export type Line = {
     isFirstLine: boolean
 }
 
-export type Poem = Line[]
+export type PoemType = LineType[]
 
-export type PoemGraphics = {
+export type PoemGraphicsType = {
     backgroundSrc: string,
     colorIconSrc: string,
     bwIconSrc: string,

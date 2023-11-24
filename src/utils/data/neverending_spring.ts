@@ -1,9 +1,9 @@
-import { Poem, PoemGraphics } from "../types/Poem";
+import { PoemType, PoemGraphicsType } from "../types/PoemTypes";
 import backgroundSrc from '../../images/backgrounds/neverending-spring-background-noise.png'
 import colorIconSrc from '../../images/colorIcons/poem-nav-icons-spring.png'
 import bwIconSrc from '../../images/bwIcons/poem-nav-icons-spring-bw.png'
 
-const neverendingSpring: Poem = [
+const neverendingSpring: PoemType = [
     {
         text: "Neverending Spring",
         isTitle: true,
@@ -153,7 +153,7 @@ const neverendingSpring: Poem = [
     },
 ]
 
-const neverendingSpringGraphics: PoemGraphics = {
+const neverendingSpringGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,

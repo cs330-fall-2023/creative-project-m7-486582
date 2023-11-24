@@ -1,15 +1,15 @@
 import React, { FC, Dispatch, SetStateAction } from 'react'
 import styles from '../../styles/PoemsPage.module.css'
 import classNames from 'classnames'
-import { Poem, PoemGraphics } from '../../utils/types/Poem'
+import { PoemType, PoemGraphicsType } from '../../utils/types/PoemTypes'
 
 interface Props {
-    poem: Poem,
-    poemGraphics: PoemGraphics,
+    poem: PoemType,
+    poemGraphics: PoemGraphicsType,
     isSidebarOpen: boolean,
     setIsSidebarOpen: Dispatch<SetStateAction<boolean>>,
-    setCurrentPoem: Dispatch<SetStateAction<Poem | undefined>>,
-    setCurrentPoemGraphics: Dispatch<SetStateAction<PoemGraphics | undefined>>
+    setCurrentPoem: Dispatch<SetStateAction<PoemType | undefined>>,
+    setCurrentPoemGraphics: Dispatch<SetStateAction<PoemGraphicsType | undefined>>
 }
 
 const PoemIcon: FC<Props> = ({

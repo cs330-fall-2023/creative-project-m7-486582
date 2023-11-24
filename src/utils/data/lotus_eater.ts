@@ -1,9 +1,9 @@
-import { Poem, PoemGraphics } from "../types/Poem";
+import { PoemType, PoemGraphicsType } from "../types/PoemTypes";
 import backgroundSrc from '../../images/backgrounds/cold-leaves-background-noise.png'
 import colorIconSrc from '../../images/colorIcons/poem-nav-icons-lotus.png'
 import bwIconSrc from '../../images/bwIcons/poem-nav-icons-lotus-bw.png'
 
-const lotusEater: Poem = [
+const lotusEater: PoemType = [
     {
         text: "Lotus-Eater",
         isTitle: true,
@@ -202,7 +202,7 @@ const lotusEater: Poem = [
     },
 ]
 
-const lotusEaterGraphics: PoemGraphics = {
+const lotusEaterGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,

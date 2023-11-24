@@ -1,9 +1,9 @@
-import { Poem, PoemGraphics } from '../types/Poem'
+import { PoemType, PoemGraphicsType } from '../types/PoemTypes'
 import backgroundSrc from '../../images/backgrounds/friendship-background-noise.png'
 import colorIconSrc from '../../images/colorIcons/poem-nav-icons-friendship.png'
 import bwIconSrc from '../../images/bwIcons/poem-nav-icons-friendship-bw.png'
 
-const friendship: Poem = [
+const friendship: PoemType = [
     {
         text: "Friendship",
         isTitle: true,
@@ -174,7 +174,7 @@ const friendship: Poem = [
     },
 ]
 
-const friendshipGraphics: PoemGraphics = {
+const friendshipGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,

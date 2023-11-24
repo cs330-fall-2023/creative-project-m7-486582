@@ -1,9 +1,9 @@
-import { Poem, PoemGraphics } from "../types/Poem";
+import { PoemType, PoemGraphicsType } from "../types/PoemTypes";
 import backgroundSrc from '../../images/backgrounds/mirror-background-noise.png'
 import colorIconSrc from '../../images/colorIcons/poem-nav-icons-mirror.png'
 import bwIconSrc from '../../images/bwIcons/poem-nav-icons-mirror-bw.png'
 
-const mirrorMirror: Poem = [
+const mirrorMirror: PoemType = [
     {
         text: "mirror mirror",
         isTitle: true,
@@ -224,7 +224,7 @@ const mirrorMirror: Poem = [
     },
 ]
 
-const mirrorMirrorGraphics: PoemGraphics = {
+const mirrorMirrorGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
