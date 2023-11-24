@@ -229,7 +229,7 @@ const summerNightsGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: "#57336A",
+    textColor: "#855094",
     alt: "Summer Nights Icon"
 }
 

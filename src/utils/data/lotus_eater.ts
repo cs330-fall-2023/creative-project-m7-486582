@@ -206,7 +206,7 @@ const lotusEaterGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: 'blue',
+    textColor: '#77787A',
     alt: 'Lotus-Eater'
 }
 

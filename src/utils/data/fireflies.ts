@@ -199,8 +199,8 @@ const firefliesGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: "blue",
+    textColor: "#fcf403",
     alt: "Fireflies Icon"
 }
 
-export {fireflies, firefliesGraphics};
+export { fireflies, firefliesGraphics };

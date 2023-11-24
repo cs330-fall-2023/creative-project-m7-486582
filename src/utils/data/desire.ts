@@ -178,7 +178,7 @@ const desireGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: 'blue',
+    textColor: '#977478',
     alt: "Desire"
 }
 

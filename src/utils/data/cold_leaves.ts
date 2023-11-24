@@ -178,7 +178,7 @@ const coldLeavesGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: 'blue',
+    textColor: '#51205D',
     alt: "The Cold Doesn't Leave in Spring"
 }
 

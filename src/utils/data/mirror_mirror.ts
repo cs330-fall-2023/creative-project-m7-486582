@@ -228,7 +228,7 @@ const mirrorMirrorGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: "black",
+    textColor: "#015764",
     alt: "mirror mirror"
 }
 

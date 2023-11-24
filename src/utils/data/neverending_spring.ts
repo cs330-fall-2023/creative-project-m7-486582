@@ -157,7 +157,7 @@ const neverendingSpringGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: 'green',
+    textColor: '#030900',
     alt: "Neverending Spring"
 }
 

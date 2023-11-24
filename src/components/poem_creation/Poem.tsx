@@ -13,11 +13,13 @@ const Poem: FC<Props> = ({
     poem,
     poemGraphics
 }) => {
+    let textColor = poemGraphics ? poemGraphics.textColor : 'black';
+    console.log(textColor)
 
     return (
-        <div className={styles.poem_container}>
+        <div className={styles.poem_container} style={{ color: textColor }}>
             {poem && poem.map((line, index) => {
-                return <PoemLine key={line.text + "_" + index} line={line} />
+                return <PoemLine key={line.text + "_" + index} line={line} textColor={textColor} />
             })}
         </div>
     );

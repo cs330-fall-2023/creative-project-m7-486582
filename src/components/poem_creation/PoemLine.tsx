@@ -5,10 +5,12 @@ import classNames from 'classnames'
 
 interface Props {
     line: LineType
+    textColor: string
 }
 
 const PoemLine: FC<Props> = ({
-    line
+    line,
+    textColor
 }) => {
 
     const cx = classNames.bind(styles)
@@ -22,7 +24,7 @@ const PoemLine: FC<Props> = ({
     )
 
     return (
-        <div className={className}>{line.text}</div>
+        <div className={className} style={{ color: textColor }}>{line.text}</div>
     )
 }
 

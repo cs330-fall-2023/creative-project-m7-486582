@@ -199,7 +199,7 @@ const heartIconGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: "green",
+    textColor: "#50031B",
     alt: "Heart Icon",
 }
 

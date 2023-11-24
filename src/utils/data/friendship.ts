@@ -178,7 +178,7 @@ const friendshipGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: 'green',
+    textColor: '#290000',
     alt: 'Friendship'
 }
 
