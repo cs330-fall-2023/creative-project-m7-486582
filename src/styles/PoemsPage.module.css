@@ -5,7 +5,9 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    width: 50%;
+    width: 85%;
+    height: calc(100% - 128px);
+    overflow: auto;
 }
 
 .poem_line {
@@ -27,8 +29,13 @@
 }
 
 .link {
-    text-decoration: underline;
     cursor: pointer;
+    text-decoration: underline solid transparent;
+    transition: all 0.5s ease;
+}
+
+.link:hover {
+    text-decoration: underline solid black;
 }
 
 .first_line {
@@ -77,4 +84,16 @@
 
 .poem_icon_container {
     position: relative;
+}
+
+.user_poem {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 40%;
+    height: 100%;
+    padding: 16px;
+    align-items: flex-start;
+    overflow: auto;
 }

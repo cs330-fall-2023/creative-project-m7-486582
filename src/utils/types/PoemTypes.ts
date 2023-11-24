@@ -6,7 +6,13 @@ export type LineType = {
     isFirstLine: boolean
 }
 
+export type UserLineType = {
+    line: LineType,
+    textColor: string
+}
+
 export type PoemType = LineType[]
+export type UserPoemType = UserLineType[]
 
 export type PoemGraphicsType = {
     backgroundSrc: string,

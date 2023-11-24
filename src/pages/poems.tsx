@@ -1,27 +1,37 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import UserPoem from '../components/poem_creation/UserPoem'
-import { PoemType, PoemGraphicsType } from '../utils/types/PoemTypes'
+import { PoemType, PoemGraphicsType, UserPoemType } from '../utils/types/PoemTypes'
 import { allPoems, allPoemGraphics } from '../utils/data/poems_wrapper'
 import PoemIcon from '../components/poem_creation/PoemIcon'
 import styles from '../styles/PoemsPage.module.css'
 import PoemSidebar from '../components/poem_creation/PoemSidebar'
+import PlaceholderPoem from '../components/poem_creation/PlaceholderPoem'
 
 const PoemsPage: FC = () => {
-    const [lines, setLines] = useState<PoemType>([])
+    const [lines, setLines] = useState<UserPoemType>([])
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false)
     const [currentPoem, setCurrentPoem] = useState<PoemType | undefined>(undefined)
     const [currentPoemGraphics, setCurrentPoemGraphics] = useState<PoemGraphicsType | undefined>(undefined)
+
+    useEffect(() => {
+        console.log(lines)
+    }, [lines])
+
     return (
-        <div style={{overflow: 'hidden'}}>
-            <UserPoem 
-                lines={lines}
-                setLines={setLines}
-            />
+        <div style={{ overflow: 'hidden' }}>
+            {
+                lines.length === 0 ?
+                    <PlaceholderPoem /> :
+                    <UserPoem
+                        lines={lines}
+                        setLines={setLines}
+                    />
+            }
             <div className={styles.poem_icons}>
                 {
                     allPoemGraphics.map((poemGraphics, index) => {
                         return (
-                            <PoemIcon 
+                            <PoemIcon
                                 key={poemGraphics.alt}
                                 poem={allPoems[index]}
                                 poemGraphics={poemGraphics}
@@ -34,10 +44,11 @@ const PoemsPage: FC = () => {
                     })
                 }
             </div>
-            <PoemSidebar 
+            <PoemSidebar
                 poem={currentPoem}
                 poemGraphics={currentPoemGraphics}
                 isSidebarOpen={isSidebarOpen}
+                setLines={setLines}
             />
         </div>
     )

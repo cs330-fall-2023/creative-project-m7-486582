@@ -6,9 +6,9 @@ import PoemsPage from './pages/poems';
 const App: FC = () => {
   const [currentPage, setCurrentPage] = React.useState<number>(0)
   const pages = [
-    <WelcomePage 
-      setCurrentPage={setCurrentPage} 
-    />, 
+    <WelcomePage
+      setCurrentPage={setCurrentPage}
+    />,
     <PoemsPage />
   ]
 
@@ -42,7 +42,7 @@ const App: FC = () => {
   return (
     <div className="App">
       <div className={"page"} id="welcome-page">
-        <WelcomePage 
+        <WelcomePage
           setCurrentPage={setCurrentPage}
         />
       </div>

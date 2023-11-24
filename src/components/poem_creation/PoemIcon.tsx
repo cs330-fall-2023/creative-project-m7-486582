@@ -35,7 +35,7 @@ const PoemIcon: FC<Props> = ({
             colorImg.classList.add(styles.poem_icon_active)
             colorImg.classList.remove(styles.poem_icon_inactive)
         }
-    }   
+    }
 
     const handleMouseLeave = () => {
         if (bwImg && colorImg) {
@@ -48,9 +48,23 @@ const PoemIcon: FC<Props> = ({
 
     const selectPoem = () => {
         if (isSidebarOpen) {
-            setIsSidebarOpen(false)
-            setCurrentPoem(undefined)
-            setCurrentPoemGraphics(undefined)
+            setCurrentPoem(prevPoem => {
+                if (prevPoem === poem) {
+                    setIsSidebarOpen(false)
+                    return undefined
+                } else {
+                    return poem
+                }
+            })
+            setCurrentPoemGraphics(prevPoemGraphics => {
+                if (prevPoemGraphics === poemGraphics) {
+                    setIsSidebarOpen(false)
+                    return undefined
+                } else {
+                    return poemGraphics
+                }
+
+            })
         } else {
             setIsSidebarOpen(true)
             setCurrentPoem(poem)
@@ -59,24 +73,24 @@ const PoemIcon: FC<Props> = ({
     }
 
     return (
-        <div 
-            className={styles.poem_icon_container} 
+        <div
+            className={styles.poem_icon_container}
             onMouseEnter={() => handleMouseEnter()}
-            onMouseLeave={() => handleMouseLeave()} 
+            onMouseLeave={() => handleMouseLeave()}
             onClick={() => selectPoem()}
         >
-            <img 
-                className={cx(styles.poem_icon_active, styles.poem_icon)} 
-                src={poemGraphics.bwIconSrc} 
-                alt={poemGraphics.alt} 
-                id={bwId} 
+            <img
+                className={cx(styles.poem_icon_active, styles.poem_icon)}
+                src={poemGraphics.bwIconSrc}
+                alt={poemGraphics.alt}
+                id={bwId}
             />
-            <img 
-                className={cx(styles.poem_icon_inactive, styles.poem_icon_color, styles.poem_icon)} 
-                src={poemGraphics.colorIconSrc} 
-                alt={poemGraphics.alt} 
-                id={colorId} 
-                />
+            <img
+                className={cx(styles.poem_icon_inactive, styles.poem_icon_color, styles.poem_icon)}
+                src={poemGraphics.colorIconSrc}
+                alt={poemGraphics.alt}
+                id={colorId}
+            />
         </div>
     )
 }
