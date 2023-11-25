@@ -1,13 +1,12 @@
-import React, { Dispatch, FC, SetStateAction } from 'react'
-import { LineType, PoemType, UserPoemType } from '../../utils/types/PoemTypes'
+import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
+import { LineType, UserLineType, UserPoemType } from '../../utils/types/PoemTypes'
 import styles from '../../styles/PoemsPage.module.css'
 import classNames from 'classnames'
-import { Draggable } from 'react-beautiful-dnd'
 
 interface Props {
     line: LineType
     textColor: string
-    isPlaceholder?: boolean
+    fromUserPoem?: boolean
     setLines: Dispatch<SetStateAction<UserPoemType>>
     index: number
 }
@@ -15,13 +14,43 @@ interface Props {
 const PoemLine: FC<Props> = ({
     line,
     textColor,
-    isPlaceholder,
+    fromUserPoem = false,
     setLines,
     index
 }) => {
 
+    useEffect(() => {
+        if (fromUserPoem) {
+            const lineDiv = document.getElementById(line.text + "_" + index)
+            if (lineDiv) {
+                setTimeout(() => {
+                    lineDiv.classList.remove(styles.fade_in)
+                }, 50)
+            }
+        }
+    }, [])
+
+
     const handleLineClick = () => {
-        setLines(prevLines => [...prevLines, { line, textColor: textColor }])
+        setLines(prevLines => {
+            const userLine: UserLineType = {
+                line: {
+                    ...line,
+                    isNewStanza: false,
+                    isFirstLine: false,
+                    isLink: true,
+                },
+                textColor
+            }
+
+            if (fromUserPoem) {
+                const newLines = [...prevLines]
+                const index = newLines.findIndex(line => line.line.text === userLine.line.text && line.textColor === userLine.textColor)
+                newLines.splice(index, 1)
+                return newLines
+            }
+            return [...prevLines, userLine]
+        })
     }
 
     const cx = classNames.bind(styles)
@@ -32,15 +61,11 @@ const PoemLine: FC<Props> = ({
         line.isLink && styles.link,
         line.isNewStanza && styles.new_stanza,
         line.isFirstLine && styles.first_line,
-        isPlaceholder && styles.placeholder_line
+        fromUserPoem && styles.fade_in
     )
 
     return (
-        <Draggable draggableId={line.text} index={index}>
-            {(provided) => {
-                return <div className={className} style={{ color: textColor }} onClick={() => handleLineClick()} {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>{line.text}</div>
-            }}
-        </Draggable>
+        <div className={className} style={{ color: textColor }} onClick={() => handleLineClick()} id={line.text + "_" + index}>{line.text}</div>
     )
 }
 
