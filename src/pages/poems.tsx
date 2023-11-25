@@ -12,16 +12,23 @@ const PoemsPage: FC = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false)
     const [currentPoem, setCurrentPoem] = useState<PoemType | undefined>(undefined)
     const [currentPoemGraphics, setCurrentPoemGraphics] = useState<PoemGraphicsType | undefined>(undefined)
+    const [title, setTitle] = useState<string>("")
+    const [author, setAuthor] = useState<string>("")
 
     useEffect(() => {
-        console.log(lines)
-    }, [lines])
+        console.log(title, author)
+    }, [title, author])
 
     return (
         <div style={{ overflow: 'hidden' }}>
             {
                 lines.length === 0 ?
-                    <PlaceholderPoem /> :
+                    <PlaceholderPoem
+                        title={title}
+                        setTitle={setTitle}
+                        author={author}
+                        setAuthor={setAuthor}
+                    /> :
                     <UserPoem
                         lines={lines}
                         setLines={setLines}

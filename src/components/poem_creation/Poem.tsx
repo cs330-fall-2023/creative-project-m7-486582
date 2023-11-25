@@ -2,7 +2,6 @@ import React, { Dispatch, FC, SetStateAction } from 'react';
 import { PoemType, PoemGraphicsType, UserPoemType } from '../../utils/types/PoemTypes';
 import PoemLine from './PoemLine';
 import styles from '../../styles/PoemsPage.module.css'
-import FadeIn from 'react-fade-in/lib/FadeIn';
 
 interface Props {
     poem: PoemType | undefined;

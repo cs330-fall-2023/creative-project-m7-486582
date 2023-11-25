@@ -10,18 +10,30 @@
     overflow: auto;
 }
 
+.clean_input {
+    background-color: transparent;
+    border: none;
+    padding-right: 8px;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.clean_input:focus {
+    outline: none;
+}
+
 .poem_line {
     font-size: 24px;
     color: black;
     text-align: left;
     opacity: 1;
     transition: all 0.5s ease;
+    width: fit-content;
+    height: fit-content;
 }
 
 .poem_title {
     font-size: 32px;
-    position: relative;
-    left: -4px;
     font-weight: 100;
     font-style: italic;
 }
