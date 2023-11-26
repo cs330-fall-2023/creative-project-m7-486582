@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useState } from 'react'
 import UserPoem from '../components/poem_creation/UserPoem'
 import { PoemType, PoemGraphicsType, UserPoemType } from '../utils/types/PoemTypes'
 import { allPoems, allPoemGraphics } from '../utils/data/poems_wrapper'
