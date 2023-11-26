@@ -7,17 +7,21 @@ import Poem from './Poem';
 
 
 interface Props {
-    poem: PoemType | undefined,
-    poemGraphics: PoemGraphicsType | undefined,
+    poem: PoemType | undefined
+    poemGraphics: PoemGraphicsType | undefined
     isSidebarOpen: boolean
     setLines: Dispatch<SetStateAction<UserPoemType>>
+    nextIsNewStanza: boolean
+    setNextIsNewStanza: Dispatch<SetStateAction<boolean>>
 }
 
 const PoemSidebar: FC<Props> = ({
     poem,
     poemGraphics,
     isSidebarOpen,
-    setLines
+    setLines,
+    nextIsNewStanza,
+    setNextIsNewStanza
 }) => {
     const cx = classNames.bind(styles)
 
@@ -30,6 +34,8 @@ const PoemSidebar: FC<Props> = ({
                 poem={poem}
                 poemGraphics={poemGraphics}
                 setLines={setLines}
+                nextIsNewStanza={nextIsNewStanza}
+                setNextIsNewStanza={setNextIsNewStanza}
             />
         </div>
     )

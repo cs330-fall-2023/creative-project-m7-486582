@@ -8,6 +8,7 @@ interface Props {
     poemGraphics: PoemGraphicsType,
     isSidebarOpen: boolean,
     setIsSidebarOpen: Dispatch<SetStateAction<boolean>>,
+    currentPoem: PoemType | undefined,
     setCurrentPoem: Dispatch<SetStateAction<PoemType | undefined>>,
     setCurrentPoemGraphics: Dispatch<SetStateAction<PoemGraphicsType | undefined>>
 }
@@ -17,6 +18,7 @@ const PoemIcon: FC<Props> = ({
     poemGraphics,
     isSidebarOpen,
     setIsSidebarOpen,
+    currentPoem,
     setCurrentPoem,
     setCurrentPoemGraphics
 }) => {
@@ -43,7 +45,13 @@ const PoemIcon: FC<Props> = ({
             bwImg.classList.add(styles.poem_icon_active)
             colorImg.classList.remove(styles.poem_icon_active)
             colorImg.classList.add(styles.poem_icon_inactive)
+            
+            if (currentPoem === poem) {
+                colorImg.classList.add(styles.poem_icon_active)
+                colorImg.classList.remove(styles.poem_icon_inactive)
+            }
         }
+        
     }
 
     const selectPoem = () => {
@@ -86,7 +94,7 @@ const PoemIcon: FC<Props> = ({
                 id={bwId}
             />
             <img
-                className={cx(styles.poem_icon_inactive, styles.poem_icon_color, styles.poem_icon)}
+                className={cx(styles.poem_icon_color, styles.poem_icon, currentPoem === poem ? styles.poem_icon_active : styles.poem_icon_inactive)}
                 src={poemGraphics.colorIconSrc}
                 alt={poemGraphics.alt}
                 id={colorId}

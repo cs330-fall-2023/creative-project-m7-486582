@@ -31,7 +31,10 @@ const PlaceholderPoem: FC<Props> = ({
         <div className={styles.poem_container}>
             <input type="text" placeholder="untitled" className={cx(styles.clean_input, styles.poem_line, styles.poem_title)} value={title} onChange={handleTitleChange} />
             <div className={styles.poem_line}>by <input type="text" placeholder="your name" className={cx(styles.clean_input)} value={author} onChange={handleAuthorChange} /></div>
-            <div className={cx(styles.poem_line, styles.placeholder_line, styles.first_line)}>click through the icons</div>
+            <div style={{display: 'flex', alignItems: 'flex-end'}}>
+                <div key="cursor" className={cx(styles.blinking_cursor, styles.placeholder_line)}></div>
+                <div className={cx(styles.poem_line, styles.placeholder_line, styles.first_line)}>click through the icons</div>
+            </div>
             <div className={cx(styles.poem_line, styles.placeholder_line)}>to read the poems</div>
             <div className={cx(styles.poem_line, styles.placeholder_line)}>and click the lines</div>
             <div className={cx(styles.poem_line, styles.placeholder_line)}>you want to include</div>

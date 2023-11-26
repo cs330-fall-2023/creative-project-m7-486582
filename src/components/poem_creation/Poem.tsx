@@ -7,12 +7,16 @@ interface Props {
     poem: PoemType | undefined;
     poemGraphics: PoemGraphicsType | undefined;
     setLines: Dispatch<SetStateAction<UserPoemType>>
+    nextIsNewStanza: boolean
+    setNextIsNewStanza: Dispatch<SetStateAction<boolean>>
 }
 
 const Poem: FC<Props> = ({
     poem,
     poemGraphics,
-    setLines
+    setLines,
+    nextIsNewStanza,
+    setNextIsNewStanza
 }) => {
     let textColor = poemGraphics ? poemGraphics.textColor : 'black';
 
@@ -26,6 +30,8 @@ const Poem: FC<Props> = ({
                         textColor={textColor}
                         setLines={setLines}
                         index={index}
+                        nextIsNewStanza={nextIsNewStanza}
+                        setNextIsNewStanza={setNextIsNewStanza}
                     />
                 )
             })}

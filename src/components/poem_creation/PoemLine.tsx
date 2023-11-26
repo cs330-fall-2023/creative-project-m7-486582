@@ -9,6 +9,8 @@ interface Props {
     fromUserPoem?: boolean
     setLines: Dispatch<SetStateAction<UserPoemType>>
     index: number
+    nextIsNewStanza?: boolean
+    setNextIsNewStanza?: Dispatch<SetStateAction<boolean>>
 }
 
 const PoemLine: FC<Props> = ({
@@ -16,7 +18,9 @@ const PoemLine: FC<Props> = ({
     textColor,
     fromUserPoem = false,
     setLines,
-    index
+    index,
+    nextIsNewStanza = false,
+    setNextIsNewStanza = () => {}
 }) => {
 
     useEffect(() => {
@@ -38,11 +42,15 @@ const PoemLine: FC<Props> = ({
             const userLine: UserLineType = {
                 line: {
                     ...line,
-                    isNewStanza: false,
-                    isFirstLine: false,
+                    isNewStanza: nextIsNewStanza,
+                    isFirstLine: prevLines.length === 0,
                     isLink: true,
                 },
                 textColor
+            }
+
+            if (nextIsNewStanza) {
+                setNextIsNewStanza(false)
             }
 
             if (fromUserPoem) {
