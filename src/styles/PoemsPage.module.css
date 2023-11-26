@@ -103,3 +103,33 @@
 .fade_in {
     opacity: 0;
 }
+
+.last_line {
+    display: flex;
+    gap: 4px;
+}
+
+.last_in_stanza {
+    margin-bottom: 16px;
+}
+
+.blinking_cursor {
+    width: 2px;
+    height: 100%;
+    background-color: gray;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

@@ -28,6 +28,8 @@ const PoemLine: FC<Props> = ({
                 }, 50)
             }
         }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
@@ -61,7 +63,8 @@ const PoemLine: FC<Props> = ({
         line.isLink && styles.link,
         line.isNewStanza && styles.new_stanza,
         line.isFirstLine && styles.first_line,
-        fromUserPoem && styles.fade_in
+        fromUserPoem && styles.fade_in,
+        line.isLastInStanza && styles.last_in_stanza
     )
 
     return (

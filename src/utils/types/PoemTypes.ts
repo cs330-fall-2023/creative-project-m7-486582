@@ -3,7 +3,8 @@ export type LineType = {
     isTitle: boolean,
     isLink: boolean,
     isNewStanza: boolean,
-    isFirstLine: boolean
+    isFirstLine: boolean,
+    isLastInStanza?: boolean
 }
 
 export type UserLineType = {

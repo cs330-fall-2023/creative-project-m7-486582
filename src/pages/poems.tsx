@@ -15,10 +15,6 @@ const PoemsPage: FC = () => {
     const [title, setTitle] = useState<string>("")
     const [author, setAuthor] = useState<string>("")
 
-    useEffect(() => {
-        console.log(title, author)
-    }, [title, author])
-
     return (
         <div style={{ overflow: 'hidden' }}>
             {
@@ -32,6 +28,10 @@ const PoemsPage: FC = () => {
                     <UserPoem
                         lines={lines}
                         setLines={setLines}
+                        title={title}
+                        setTitle={setTitle}
+                        author={author}
+                        setAuthor={setAuthor}
                     />
             }
             <div className={styles.poem_icons}>
