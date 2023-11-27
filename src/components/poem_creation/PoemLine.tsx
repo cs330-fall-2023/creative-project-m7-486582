@@ -46,7 +46,7 @@ const PoemLine: FC<Props> = ({
                     isFirstLine: prevLines.length === 0,
                     isLink: true,
                 },
-                textColor
+                textColor,
             }
 
             if (nextIsNewStanza) {
