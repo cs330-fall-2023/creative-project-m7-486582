@@ -1,7 +1,8 @@
 import React, { FC, useEffect, useState } from 'react'
 import UserPoem from '../components/poem_creation/UserPoem'
-import { PoemType, PoemGraphicsType, UserPoemType } from '../utils/types/PoemTypes'
+import { PoemType, PoemGraphicsType, UserPoemType, UserLineType } from '../utils/types/PoemTypes'
 import { allPoems, allPoemGraphics } from '../utils/data/poems_wrapper'
+import { textColorToPoem } from '../utils/data/text_colors'
 import PoemIcon from '../components/poem_creation/PoemIcon'
 import styles from '../styles/PoemsPage.module.css'
 import PoemSidebar from '../components/poem_creation/PoemSidebar'
@@ -19,33 +20,74 @@ import desireSound from '../sounds/poem-sounds-desire.mp3'
 
 const PoemsPage: FC = () => {
     const [lines, setLines] = useState<UserPoemType>([])
-    const [numLines, setNumLines] = useState<number>(0)
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false)
     const [currentPoem, setCurrentPoem] = useState<PoemType | undefined>(undefined)
     const [currentPoemGraphics, setCurrentPoemGraphics] = useState<PoemGraphicsType | undefined>(undefined)
     const [title, setTitle] = useState<string>("")
     const [author, setAuthor] = useState<string>("")
     const [nextIsNewStanza, setNextIsNewStanza] = useState<boolean>(false)
+    const [currentPoemLevels, setCurrentPoemLevels] = useState({
+        'heart-icon': 0,
+        'fireflies': 0,
+        'neverending-spring': 0,
+        'summer-nights': 0,
+        'mirror-mirror': 0,
+        'lotus-eater': 0,
+        'cold-leaves': 0,
+        'friendship': 0,
+        'desire': 0,
+        'total': 0
+    })
 
-    const [playHeartIcon, stopHeartIcon] = useSound(heartIconSound)
-    const [playFireflies, stopFireflies] = useSound(firefliesSound)
-    const [playNeverendingSpring, stopNeverendingSpring] = useSound(neverendingSpringSound)
-    const [playSummerNights, stopSummerNights] = useSound(summerNightsSound)
-    const [playMirrorMirror, stopMirrorMirror] = useSound(mirrorMirrorSound)
-    const [playLotusEater, stopLotusEater] = useSound(lotusEaterSound)
-    const [playColdLeaves, stopColdLeaves] = useSound(coldLeavesSound)
-    const [playFriendship, stopFriendship] = useSound(friendshipSound)
-    const [playDesire, stopDesire] = useSound(desireSound)
+    const [playHeartIcon, heartIconData] = useSound(heartIconSound)
+    const [playFireflies, firefliesData] = useSound(firefliesSound)
+    const [playNeverendingSpring, neverendingSpringData] = useSound(neverendingSpringSound)
+    const [playSummerNights, summerNightsData] = useSound(summerNightsSound)
+    const [playMirrorMirror, mirrorMirrorData] = useSound(mirrorMirrorSound)
+    const [playLotusEater, lotusEaterData] = useSound(lotusEaterSound)
+    const [playColdLeaves, coldLeavesData] = useSound(coldLeavesSound)
+    const [playFriendship, friendshipData] = useSound(friendshipSound)
+    const [playDesire, desireData] = useSound(desireSound)
 
     const addStanza = () => {
-        console.log("adding")
         setNextIsNewStanza(true)
+    }
+    
+    const addLineToLevelsAndPlay = (line: UserLineType) => {
+        const poemTitle = textColorToPoem[line.textColor]
+        // @ts-ignore
+        if (currentPoemLevels[poemTitle] === 0) {
+            playSound(poemTitle)
+        }
+        setCurrentPoemLevels(prev => {
+            return {
+                ...prev,
+                // @ts-ignore
+                [poemTitle]: prev[poemTitle] + 1,
+                'total': prev['total'] + 1
+            }
+        })
+    }
+
+    const removeLineFromLevels = (line: UserLineType) => {
+        const poemTitle = textColorToPoem[line.textColor]
+        setCurrentPoemLevels(prev => {
+            return {
+                ...prev,
+                // @ts-ignore
+                [poemTitle]: Math.max(prev[poemTitle] - 1, 0),
+                'total': Math.max(prev['total'] - 1, 0)
+            }
+        })
     }
 
     const deleteLastLine = () => {
         setLines(prevLines => {
             if (prevLines.length > 0) {
-                prevLines.pop()
+                const userLine = prevLines.pop()
+                if (userLine) {
+                    removeLineFromLevels(userLine)
+                }
                 return [...prevLines]
             } else {
                 return []
@@ -75,45 +117,116 @@ const PoemsPage: FC = () => {
     }, [])
 
     useEffect(() => {
-        if (lines.length > numLines) {
-            const lastLine = lines[lines.length - 1]
-            const lastTextColor = lastLine.textColor
-            startPlaying(lastTextColor)
-        }
-        setNumLines(lines.length)
-    }, [lines])
+        rebalanceSound()
 
-    const startPlaying = (textColor: string) => {
-        switch(textColor) {
-            case allPoemGraphics[0].textColor:
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentPoemLevels])
+
+    const playSound = (poemTitle: string) => {
+        switch (poemTitle) {
+            case 'heart-icon':
                 playHeartIcon()
                 break
-            case allPoemGraphics[1].textColor:
+            case 'fireflies':
                 playFireflies()
                 break
-            case allPoemGraphics[2].textColor:
+            case 'neverending-spring':
                 playNeverendingSpring()
                 break
-            case allPoemGraphics[3].textColor:
+            case 'summer-nights':
                 playSummerNights()
                 break
-            case allPoemGraphics[4].textColor:
+            case 'mirror-mirror':
                 playMirrorMirror()
                 break
-            case allPoemGraphics[5].textColor:
+            case 'lotus-eater':
                 playLotusEater()
                 break
-            case allPoemGraphics[6].textColor:
+            case 'cold-leaves':
                 playColdLeaves()
                 break
-            case allPoemGraphics[7].textColor:
+            case 'friendship':
                 playFriendship()
                 break
-            case allPoemGraphics[8].textColor:
+            case 'desire':
                 playDesire()
                 break
             default:
                 break
+        }
+    }
+
+    const rebalanceSound = () => {
+        if (heartIconData.sound) {
+            if (currentPoemLevels['heart-icon'] === 0) {
+                heartIconData.stop()
+            } else {
+                heartIconData.sound.fade(heartIconData.sound._volume, currentPoemLevels['heart-icon'] / currentPoemLevels['total'], 1000)
+            }
+        }
+        
+        if (firefliesData.sound) {
+            if (currentPoemLevels['fireflies'] === 0) {
+                firefliesData.stop()
+            } else {
+                firefliesData.sound.fade(firefliesData.sound._volume, currentPoemLevels['fireflies'] / currentPoemLevels['total'], 1000)
+            }
+        }
+
+        if (neverendingSpringData.sound) {
+            if (currentPoemLevels['neverending-spring'] === 0) {
+                neverendingSpringData.stop()
+            } else {
+                neverendingSpringData.sound.fade(neverendingSpringData.sound._volume, currentPoemLevels['neverending-spring'] / currentPoemLevels['total'], 1000)
+            }
+        }
+
+        if (summerNightsData.sound) {
+            if (currentPoemLevels['summer-nights'] === 0) {
+                summerNightsData.stop()
+            } else {
+                summerNightsData.sound.fade(summerNightsData.sound._volume, currentPoemLevels['summer-nights'] / currentPoemLevels['total'], 1000)
+            }
+        }
+
+        if (mirrorMirrorData.sound) {
+            if (currentPoemLevels['mirror-mirror'] === 0) {
+                mirrorMirrorData.stop()
+            } else {
+                mirrorMirrorData.sound.fade(mirrorMirrorData.sound._volume, currentPoemLevels['mirror-mirror'] / currentPoemLevels['total'], 1000)
+            }
+        }
+
+        if (lotusEaterData.sound) {
+            if (currentPoemLevels['lotus-eater'] === 0) {
+                firefliesData.stop()
+            } else {
+                lotusEaterData.sound.fade(lotusEaterData.sound._volume, currentPoemLevels['lotus-eater'] / currentPoemLevels['total'], 1000)
+            }
+        }
+
+        if (coldLeavesData.sound) {
+            if (currentPoemLevels['cold-leaves'] === 0) {
+                coldLeavesData.stop()
+            } else {
+                coldLeavesData.sound.fade(coldLeavesData.sound._volume, currentPoemLevels['cold-leaves'] / currentPoemLevels['total'], 1000)
+            }
+        }
+
+        if (friendshipData.sound) {
+            if (currentPoemLevels['friendship'] === 0) {
+                friendshipData.stop()
+            } else {
+                friendshipData.sound.fade(friendshipData.sound._volume, currentPoemLevels['friendship'] / currentPoemLevels['total'], 1000)
+            }
+        }
+
+        if (desireData.sound) {
+            if (currentPoemLevels['desire'] === 0) {
+                desireData.stop()
+            } else {
+                desireData.sound.fade(desireData.sound._volume, currentPoemLevels['desire'] / currentPoemLevels['total'], 1000)
+            }
         }
     }
 
@@ -135,6 +248,7 @@ const PoemsPage: FC = () => {
                         author={author}
                         setAuthor={setAuthor}
                         nextIsNewStanza={nextIsNewStanza}
+                        removeLineFromLevels={removeLineFromLevels}
                     />
             }
             <div className={styles.poem_icons}>
@@ -162,6 +276,7 @@ const PoemsPage: FC = () => {
                 setLines={setLines}
                 nextIsNewStanza={nextIsNewStanza}
                 setNextIsNewStanza={setNextIsNewStanza}
+                addLineToLevels={addLineToLevelsAndPlay}
             />
         </div>
     )

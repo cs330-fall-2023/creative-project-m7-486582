@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction } from 'react';
-import { PoemType, PoemGraphicsType, UserPoemType } from '../../utils/types/PoemTypes';
+import { PoemType, PoemGraphicsType, UserPoemType, UserLineType } from '../../utils/types/PoemTypes';
 import PoemLine from './PoemLine';
 import styles from '../../styles/PoemsPage.module.css'
 
@@ -9,6 +9,7 @@ interface Props {
     setLines: Dispatch<SetStateAction<UserPoemType>>
     nextIsNewStanza: boolean
     setNextIsNewStanza: Dispatch<SetStateAction<boolean>>
+    addLineToLevels: (line: UserLineType) => void
 }
 
 const Poem: FC<Props> = ({
@@ -16,11 +17,13 @@ const Poem: FC<Props> = ({
     poemGraphics,
     setLines,
     nextIsNewStanza,
-    setNextIsNewStanza
+    setNextIsNewStanza,
+    addLineToLevels
 }) => {
     let textColor = poemGraphics ? poemGraphics.textColor : 'black';
 
     return (
+        <div className={styles.scroll_container}>
         <div className={styles.poem_container}>
             {poem && poem.map((line, index) => {
                 return (
@@ -32,9 +35,11 @@ const Poem: FC<Props> = ({
                         index={index}
                         nextIsNewStanza={nextIsNewStanza}
                         setNextIsNewStanza={setNextIsNewStanza}
+                        addLineToLevels={addLineToLevels}
                     />
                 )
             })}
+        </div>
         </div>
     );
 }

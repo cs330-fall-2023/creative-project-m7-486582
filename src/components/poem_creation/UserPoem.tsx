@@ -1,5 +1,5 @@
-import React, { FC, Dispatch, SetStateAction, useEffect } from 'react'
-import { UserPoemType } from '../../utils/types/PoemTypes'
+import React, { FC, Dispatch, SetStateAction } from 'react'
+import { UserLineType, UserPoemType } from '../../utils/types/PoemTypes'
 import styles from '../../styles/PoemsPage.module.css'
 import PoemLine from './PoemLine'
 import classNames from 'classnames'
@@ -12,6 +12,7 @@ interface Props {
     author: string
     setAuthor: Dispatch<SetStateAction<string>>
     nextIsNewStanza: boolean
+    removeLineFromLevels: (line: UserLineType) => void
 }
 
 const UserPoem: FC<Props> = ({
@@ -21,7 +22,8 @@ const UserPoem: FC<Props> = ({
     setTitle,
     author,
     setAuthor,
-    nextIsNewStanza
+    nextIsNewStanza,
+    removeLineFromLevels
 }) => {
 
     // @ts-ignore
@@ -37,7 +39,7 @@ const UserPoem: FC<Props> = ({
     const cx = classNames.bind(styles)
 
     return (
-        <div className={styles.poem_container}>
+        <div className={styles.poem_container + " " + styles.user_poem}>
             <input type="text" placeholder="untitled" className={cx(styles.clean_input, styles.poem_line, styles.poem_title)} value={title} onChange={handleTitleChange} />
             <div className={styles.poem_line}>by <input type="text" placeholder="your name" className={cx(styles.clean_input)} value={author} onChange={handleAuthorChange} /></div>
             {
@@ -50,6 +52,7 @@ const UserPoem: FC<Props> = ({
                             fromUserPoem={true}
                             setLines={setLines}
                             index={index}
+                            removeLineFromLevels={removeLineFromLevels}
                         />
                     )
                 })

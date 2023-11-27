@@ -28,7 +28,7 @@ const PlaceholderPoem: FC<Props> = ({
     }
 
     return (
-        <div className={styles.poem_container}>
+        <div className={styles.poem_container + " " + styles.user_poem}>
             <input type="text" placeholder="untitled" className={cx(styles.clean_input, styles.poem_line, styles.poem_title)} value={title} onChange={handleTitleChange} />
             <div className={styles.poem_line}>by <input type="text" placeholder="your name" className={cx(styles.clean_input)} value={author} onChange={handleAuthorChange} /></div>
             <div style={{display: 'flex', alignItems: 'flex-end'}}>

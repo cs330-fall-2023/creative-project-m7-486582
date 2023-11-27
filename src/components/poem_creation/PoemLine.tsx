@@ -11,6 +11,8 @@ interface Props {
     index: number
     nextIsNewStanza?: boolean
     setNextIsNewStanza?: Dispatch<SetStateAction<boolean>>
+    addLineToLevels?: (line: UserLineType) => void
+    removeLineFromLevels?: (line: UserLineType) => void
 }
 
 const PoemLine: FC<Props> = ({
@@ -20,7 +22,9 @@ const PoemLine: FC<Props> = ({
     setLines,
     index,
     nextIsNewStanza = false,
-    setNextIsNewStanza = () => {}
+    setNextIsNewStanza = () => {},
+    addLineToLevels = () => {},
+    removeLineFromLevels = () => {}
 }) => {
 
     useEffect(() => {
@@ -57,7 +61,10 @@ const PoemLine: FC<Props> = ({
                 const newLines = [...prevLines]
                 const index = newLines.findIndex(line => line.line.text === userLine.line.text && line.textColor === userLine.textColor)
                 newLines.splice(index, 1)
+                removeLineFromLevels(userLine)
                 return newLines
+            } else {
+                addLineToLevels(userLine)
             }
             return [...prevLines, userLine]
         })

@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction } from 'react'
 import styles from '../../styles/PoemSidebar.module.css'
 import classNames from 'classnames';
 import defaultBackground from '../../images/backgrounds/cold-leaves-background-noise.png'
-import { PoemType, PoemGraphicsType, UserPoemType } from '../../utils/types/PoemTypes';
+import { PoemType, PoemGraphicsType, UserPoemType, UserLineType } from '../../utils/types/PoemTypes';
 import Poem from './Poem';
 
 
@@ -13,6 +13,7 @@ interface Props {
     setLines: Dispatch<SetStateAction<UserPoemType>>
     nextIsNewStanza: boolean
     setNextIsNewStanza: Dispatch<SetStateAction<boolean>>
+    addLineToLevels: (line: UserLineType) => void
 }
 
 const PoemSidebar: FC<Props> = ({
@@ -21,7 +22,8 @@ const PoemSidebar: FC<Props> = ({
     isSidebarOpen,
     setLines,
     nextIsNewStanza,
-    setNextIsNewStanza
+    setNextIsNewStanza,
+    addLineToLevels
 }) => {
     const cx = classNames.bind(styles)
 
@@ -36,6 +38,7 @@ const PoemSidebar: FC<Props> = ({
                 setLines={setLines}
                 nextIsNewStanza={nextIsNewStanza}
                 setNextIsNewStanza={setNextIsNewStanza}
+                addLineToLevels={addLineToLevels}
             />
         </div>
     )

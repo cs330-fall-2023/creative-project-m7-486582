@@ -1,13 +1,27 @@
-.poem_container {
+.scroll_container {
     position: absolute;
-    top: 64px;
-    left: 64px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
     width: 85%;
     height: calc(100% - 128px);
     overflow: auto;
+    direction: rtl;
+    top: 64px;
+    left: 64px;
+}
+
+.poem_container {
+    direction: ltr;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 16px;
+}
+
+.user_poem {
+    position: absolute;
+    top: 64px;
+    left: 64px;
+    margin-left: 0;
 }
 
 .clean_input {
@@ -66,10 +80,13 @@
     top: 16px;
     right: 24px;
     width: 60px;
+    height: calc(100% - 32px);
     display: flex;
     flex-direction: column;
     gap: 8px;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
 }
 
 .poem_icon {
