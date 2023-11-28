@@ -52,7 +52,7 @@ const PoemsPage: FC = () => {
     const addStanza = () => {
         setNextIsNewStanza(true)
     }
-    
+
     const addLineToLevelsAndPlay = (line: UserLineType) => {
         const poemTitle = textColorToPoem[line.textColor]
         // @ts-ignore
@@ -164,7 +164,7 @@ const PoemsPage: FC = () => {
                 heartIconData.sound.fade(heartIconData.sound._volume, currentPoemLevels['heart-icon'] / currentPoemLevels['total'], 1000)
             }
         }
-        
+
         if (firefliesData.sound) {
             if (currentPoemLevels['fireflies'] === 0) {
                 firefliesData.stop()
