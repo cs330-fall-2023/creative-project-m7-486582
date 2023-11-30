@@ -36,10 +36,27 @@ const UserPoem: FC<Props> = ({
         setAuthor(e.target.value)
     }
 
+    const savePoem = async () => {
+        let response = await fetch('http://localhost:3001/api/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: title,
+                author: author,
+                lines: lines
+            })
+        })
+        let data = await response.json()
+        console.log(data)
+    }
+
     const cx = classNames.bind(styles)
 
     return (
         <div className={styles.poem_container + " " + styles.user_poem}>
+            <button onClick={savePoem}>Save</button>
             <input type="text" placeholder="untitled" className={cx(styles.clean_input, styles.poem_line, styles.poem_title)} value={title} onChange={handleTitleChange} />
             <div className={styles.poem_line}>by <input type="text" placeholder="your name" className={cx(styles.clean_input)} value={author} onChange={handleAuthorChange} /></div>
             {

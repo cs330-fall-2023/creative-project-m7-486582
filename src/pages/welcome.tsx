@@ -15,15 +15,15 @@ const WelcomePage: FC<Props> = ({ setCurrentPage }) => {
     const [visiblePoem, setVisiblePoem] = React.useState<PoemType>([])
     const [currentLine, setCurrentLine] = React.useState<number>(0)
 
-    useEffect(() => {
-        const test = async () => {
-            let response = await fetch('http://localhost:3001/api/poems')
-            let data = await response.json()
-            console.log(data)
-        }
+    // useEffect(() => {
+    //     const test = async () => {
+    //         let response = await fetch('http://localhost:3001/api/poems')
+    //         let data = await response.json()
+    //         console.log(data)
+    //     }
 
-        test()
-    }, [])
+    //     test()
+    // }, [])
 
     useEffect(() => {
         if (currentLine < welcomePoem.length) {

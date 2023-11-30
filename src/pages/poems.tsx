@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import UserPoem from '../components/poem_creation/UserPoem'
 import { PoemType, PoemGraphicsType, UserPoemType, UserLineType } from '../utils/types/PoemTypes'
 import { allPoems, allPoemGraphics } from '../utils/data/poems_wrapper'
@@ -98,6 +98,9 @@ const PoemsPage: FC = () => {
     useEffect(() => {
         // @ts-ignore
         const keyDownHandler = (e) => {
+            if (e.target.tagName==="INPUT") {
+                return
+            }
             if (e.key === 'Enter') {
                 e.preventDefault()
                 addStanza()
