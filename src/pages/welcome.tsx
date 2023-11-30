@@ -16,6 +16,16 @@ const WelcomePage: FC<Props> = ({ setCurrentPage }) => {
     const [currentLine, setCurrentLine] = React.useState<number>(0)
 
     useEffect(() => {
+        const test = async () => {
+            let response = await fetch('http://localhost:3001/api/poems')
+            let data = await response.json()
+            console.log(data)
+        }
+
+        test()
+    }, [])
+
+    useEffect(() => {
         if (currentLine < welcomePoem.length) {
             setTimeout(() => {
                 setVisiblePoem(prevPoem => [...prevPoem, welcomePoem[currentLine]])
