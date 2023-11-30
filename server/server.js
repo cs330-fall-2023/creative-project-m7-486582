@@ -28,13 +28,21 @@ app.get('/api/poems', async (req, res) => {
 
 app.post('/api/save', async (req, res) => {
     try {
-        console.log(req.body)
         const userPoem = new UserPoem(req.body)
-        console.log(userPoem)
         await userPoem.save()
         res.json(userPoem)
     } catch (err) {
         console.error(err)
         res.status(500).send('Server Error')
+    }
+})
+
+app.get('/api/poem', async (req, res) => {
+    try {
+        const _id = req.query.id
+        const response = await UserPoem.find({ _id: _id })
+        res.json(response)
+    } catch (err) {
+        console.error(err)
     }
 })

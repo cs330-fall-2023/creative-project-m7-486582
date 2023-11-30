@@ -1,3 +1,8 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .page {
     width: 100vw;
     height: 100vh;
@@ -12,12 +17,11 @@
     margin: 16px;
 }
 
-.card_container {
+.link_container {
     width: 90%;
     height: 48px;
     margin: 0 auto;
     display: flex;
-    align-items: center;
     background-color: #f8f7f4;
     padding: 16px;
     border-radius: 8px;
@@ -25,7 +29,12 @@
     transition: all 0.25s ease;
 }
 
-.card_container:hover {
+.card_container {
+    display: flex;
+    align-items: center;
+}
+
+.link_container:hover {
     box-shadow: 2px 2px 2px 0 gray;
     cursor: pointer;
 }

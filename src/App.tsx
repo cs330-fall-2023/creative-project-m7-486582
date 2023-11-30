@@ -58,6 +58,7 @@ const App: FC = () => {
           </>
           } />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/view" element={<PoemsPage />} />
         </Routes>
       </BrowserRouter>
     </div>

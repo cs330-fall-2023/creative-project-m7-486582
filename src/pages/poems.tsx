@@ -17,6 +17,7 @@ import lotusEaterSound from '../sounds/poem-sounds-lotuseater.mp3'
 import coldLeavesSound from '../sounds/poem-sounds-coldleaves.mp3'
 import friendshipSound from '../sounds/poem-sounds-friendship.mp3'
 import desireSound from '../sounds/poem-sounds-desire.mp3'
+import { useLocation } from 'react-router-dom'
 
 const PoemsPage: FC = () => {
     const [lines, setLines] = useState<UserPoemType>([])
@@ -38,7 +39,6 @@ const PoemsPage: FC = () => {
         desire: 0,
         total: 0
     })
-
     const [playHeartIcon, heartIconData] = useSound(heartIconSound)
     const [playFireflies, firefliesData] = useSound(firefliesSound)
     const [playNeverendingSpring, neverendingSpringData] = useSound(neverendingSpringSound)
@@ -48,6 +48,8 @@ const PoemsPage: FC = () => {
     const [playColdLeaves, coldLeavesData] = useSound(coldLeavesSound)
     const [playFriendship, friendshipData] = useSound(friendshipSound)
     const [playDesire, desireData] = useSound(desireSound)
+    const location = useLocation()
+    const { _id } = (location.state as any) || { _id: "nope" }
 
     const addStanza = () => {
         setNextIsNewStanza(true)
@@ -95,10 +97,31 @@ const PoemsPage: FC = () => {
         })
     }
 
+    const getPoemData = async () => {
+        let response = await fetch(`http://localhost:3001/api/poem?id=${_id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        let data = await response.json()
+        let poem = data[0]
+        console.log(poem)
+        setTitle(poem.title)
+        setAuthor(poem.author)
+        setLines(poem.lines)
+    }
+
     useEffect(() => {
+        if (_id !== "nope") {
+            getPoemData()
+        } else {
+            console.log(_id)
+        }
+
         // @ts-ignore
         const keyDownHandler = (e) => {
-            if (e.target.tagName==="INPUT") {
+            if (e.target.tagName === "INPUT") {
                 return
             }
             if (e.key === 'Enter') {
