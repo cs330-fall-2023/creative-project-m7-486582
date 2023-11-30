@@ -11,13 +11,13 @@ const friendship = allPoemGraphics[7].textColor;
 const desire = allPoemGraphics[8].textColor;
 
 const textColorToPoem = {
-    [heartIcon]: 'heart-icon',
+    [heartIcon]: 'heartIcon',
     [fireflies]: 'fireflies',
-    [neverendingSpring]: 'neverending-spring',
-    [summerNights]: 'summer-nights',
-    [mirrorMirror]: 'mirror-mirror',
-    [lotusEater]: 'lotus-eater',
-    [coldLeaves]: 'cold-leaves',
+    [neverendingSpring]: 'neverendingSpring',
+    [summerNights]: 'summerNights',
+    [mirrorMirror]: 'mirrorMirror',
+    [lotusEater]: 'lotusEater',
+    [coldLeaves]: 'coldLeaves',
     [friendship]: 'friendship',
     [desire]: 'desire'
 }

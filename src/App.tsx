@@ -1,7 +1,9 @@
 import React, { FC, useEffect } from 'react';
 import './App.css';
 import WelcomePage from './pages/welcome';
-import PoemsPage from './pages/poems';
+import PoemsPage from './pages/poems'
+import GalleryPage from './pages/gallery';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const App: FC = () => {
   const [currentPage, setCurrentPage] = React.useState<number>(0)
@@ -41,14 +43,23 @@ const App: FC = () => {
 
   return (
     <div className="App">
-      <div className={"page"} id="welcome-page">
-        <WelcomePage
-          setCurrentPage={setCurrentPage}
-        />
-      </div>
-      <div className={"page"} id="poems-page">
-        <PoemsPage />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={
+            <>
+            <div className={"page"} id="welcome-page">
+              <WelcomePage
+                setCurrentPage={setCurrentPage}
+              />
+            </div>
+            <div className={"page"} id="poems-page">
+              <PoemsPage />
+            </div>
+          </>
+          } />
+          <Route path="/gallery" element={<GalleryPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -27,16 +27,16 @@ const PoemsPage: FC = () => {
     const [author, setAuthor] = useState<string>("")
     const [nextIsNewStanza, setNextIsNewStanza] = useState<boolean>(false)
     const [currentPoemLevels, setCurrentPoemLevels] = useState({
-        'heart-icon': 0,
-        'fireflies': 0,
-        'neverending-spring': 0,
-        'summer-nights': 0,
-        'mirror-mirror': 0,
-        'lotus-eater': 0,
-        'cold-leaves': 0,
-        'friendship': 0,
-        'desire': 0,
-        'total': 0
+        heartIcon: 0,
+        fireflies: 0,
+        neverendingSpring: 0,
+        summerNights: 0,
+        mirrorMirror: 0,
+        lotusEater: 0,
+        coldLeaves: 0,
+        friendship: 0,
+        desire: 0,
+        total: 0
     })
 
     const [playHeartIcon, heartIconData] = useSound(heartIconSound)
@@ -161,10 +161,10 @@ const PoemsPage: FC = () => {
 
     const rebalanceSound = () => {
         if (heartIconData.sound) {
-            if (currentPoemLevels['heart-icon'] === 0) {
+            if (currentPoemLevels['heartIcon'] === 0) {
                 heartIconData.stop()
             } else {
-                heartIconData.sound.fade(heartIconData.sound._volume, currentPoemLevels['heart-icon'] / currentPoemLevels['total'], 1000)
+                heartIconData.sound.fade(heartIconData.sound._volume, currentPoemLevels['heartIcon'] / currentPoemLevels['total'], 1000)
             }
         }
 
@@ -177,42 +177,42 @@ const PoemsPage: FC = () => {
         }
 
         if (neverendingSpringData.sound) {
-            if (currentPoemLevels['neverending-spring'] === 0) {
+            if (currentPoemLevels['neverendingSpring'] === 0) {
                 neverendingSpringData.stop()
             } else {
-                neverendingSpringData.sound.fade(neverendingSpringData.sound._volume, currentPoemLevels['neverending-spring'] / currentPoemLevels['total'], 1000)
+                neverendingSpringData.sound.fade(neverendingSpringData.sound._volume, currentPoemLevels['neverendingSpring'] / currentPoemLevels['total'], 1000)
             }
         }
 
         if (summerNightsData.sound) {
-            if (currentPoemLevels['summer-nights'] === 0) {
+            if (currentPoemLevels['summerNights'] === 0) {
                 summerNightsData.stop()
             } else {
-                summerNightsData.sound.fade(summerNightsData.sound._volume, currentPoemLevels['summer-nights'] / currentPoemLevels['total'], 1000)
+                summerNightsData.sound.fade(summerNightsData.sound._volume, currentPoemLevels['summerNights'] / currentPoemLevels['total'], 1000)
             }
         }
 
         if (mirrorMirrorData.sound) {
-            if (currentPoemLevels['mirror-mirror'] === 0) {
+            if (currentPoemLevels['mirrorMirror'] === 0) {
                 mirrorMirrorData.stop()
             } else {
-                mirrorMirrorData.sound.fade(mirrorMirrorData.sound._volume, currentPoemLevels['mirror-mirror'] / currentPoemLevels['total'], 1000)
+                mirrorMirrorData.sound.fade(mirrorMirrorData.sound._volume, currentPoemLevels['mirrorMirror'] / currentPoemLevels['total'], 1000)
             }
         }
 
         if (lotusEaterData.sound) {
-            if (currentPoemLevels['lotus-eater'] === 0) {
+            if (currentPoemLevels['lotusEater'] === 0) {
                 firefliesData.stop()
             } else {
-                lotusEaterData.sound.fade(lotusEaterData.sound._volume, currentPoemLevels['lotus-eater'] / currentPoemLevels['total'], 1000)
+                lotusEaterData.sound.fade(lotusEaterData.sound._volume, currentPoemLevels['lotusEater'] / currentPoemLevels['total'], 1000)
             }
         }
 
         if (coldLeavesData.sound) {
-            if (currentPoemLevels['cold-leaves'] === 0) {
+            if (currentPoemLevels['coldLeaves'] === 0) {
                 coldLeavesData.stop()
             } else {
-                coldLeavesData.sound.fade(coldLeavesData.sound._volume, currentPoemLevels['cold-leaves'] / currentPoemLevels['total'], 1000)
+                coldLeavesData.sound.fade(coldLeavesData.sound._volume, currentPoemLevels['coldLeaves'] / currentPoemLevels['total'], 1000)
             }
         }
 
@@ -230,6 +230,24 @@ const PoemsPage: FC = () => {
             } else {
                 desireData.sound.fade(desireData.sound._volume, currentPoemLevels['desire'] / currentPoemLevels['total'], 1000)
             }
+        }
+    }
+
+    const savePoem = async () => {
+        let response = await fetch('http://localhost:3001/api/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: title,
+                author: author,
+                lines: lines,
+                poemLevels: currentPoemLevels
+            })
+        })
+        if (!response.ok) {
+            console.error("Error saving poem")
         }
     }
 
@@ -252,6 +270,7 @@ const PoemsPage: FC = () => {
                         setAuthor={setAuthor}
                         nextIsNewStanza={nextIsNewStanza}
                         removeLineFromLevels={removeLineFromLevels}
+                        savePoem={savePoem}
                     />
             }
             <div className={styles.poem_icons}>

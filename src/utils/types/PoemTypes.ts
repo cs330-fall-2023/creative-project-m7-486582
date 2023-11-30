@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb"
+
 export type LineType = {
     text: string,
     isTitle: boolean,
@@ -21,4 +23,23 @@ export type PoemGraphicsType = {
     bwIconSrc: string,
     textColor: string,
     alt: string,
+}
+
+export type GalleryPoemType = {
+    lines: UserLineType[],
+    author: string,
+    title: string,
+    _id: ObjectId,
+    poemLevels: {
+        heartIcon: number,
+        fireflies: number,
+        neverendingSpring: number,
+        summerNights: number,
+        mirrorMirror: number,
+        lotusEater: number,
+        coldLeaves: number,
+        friendship: number,
+        desire: number,
+        total: number
+    }
 }

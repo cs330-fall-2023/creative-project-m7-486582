@@ -17,10 +17,23 @@ const userLineSchema = new mongoose.Schema({
     line: lineSchema,
     textColor: String
 })
+const levelsSchema = new mongoose.Schema({
+    heartIcon: Number,
+    fireflies: Number,
+    neverendingSpring: Number,
+    summerNights: Number,
+    mirrorMirror: Number,
+    lotusEater: Number,
+    coldLeaves: Number,
+    friendship: Number,
+    desire: Number,
+    total: Number
+})
 const userPoemSchema = new mongoose.Schema({
     lines: [userLineSchema],
     title: String,
-    author: String
+    author: String,
+    poemLevels: levelsSchema
 })
 
 const Poem = mongoose.model('Poem', poemSchema);

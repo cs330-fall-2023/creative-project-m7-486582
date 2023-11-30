@@ -13,6 +13,7 @@ interface Props {
     setAuthor: Dispatch<SetStateAction<string>>
     nextIsNewStanza: boolean
     removeLineFromLevels: (line: UserLineType) => void
+    savePoem: () => void
 }
 
 const UserPoem: FC<Props> = ({
@@ -23,7 +24,8 @@ const UserPoem: FC<Props> = ({
     author,
     setAuthor,
     nextIsNewStanza,
-    removeLineFromLevels
+    removeLineFromLevels,
+    savePoem
 }) => {
 
     // @ts-ignore
@@ -34,22 +36,6 @@ const UserPoem: FC<Props> = ({
     // @ts-ignore
     const handleAuthorChange = (e) => {
         setAuthor(e.target.value)
-    }
-
-    const savePoem = async () => {
-        let response = await fetch('http://localhost:3001/api/save', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                title: title,
-                author: author,
-                lines: lines
-            })
-        })
-        let data = await response.json()
-        console.log(data)
     }
 
     const cx = classNames.bind(styles)
