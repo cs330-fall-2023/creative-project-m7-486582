@@ -10,6 +10,7 @@ a {
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    overflow: auto;
 }
 
 .page_title {
@@ -19,7 +20,7 @@ a {
 
 .link_container {
     width: 90%;
-    height: 48px;
+    height: 300px;
     margin: 0 auto;
     display: flex;
     background-color: #f8f7f4;

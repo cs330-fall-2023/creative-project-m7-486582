@@ -166,13 +166,3 @@ q:after {
   font-family: "Roboto Slab";
   overflow: hidden;
 }
-
-.page {
-  opacity: 0;
-  overflow: hidden;
-  transition: all 0.5s ease;
-}
-
-.active {
-  opacity: 1;
-}

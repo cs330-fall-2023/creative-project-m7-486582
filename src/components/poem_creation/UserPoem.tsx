@@ -3,6 +3,8 @@ import { UserLineType, UserPoemType } from '../../utils/types/PoemTypes'
 import styles from '../../styles/PoemsPage.module.css'
 import PoemLine from './PoemLine'
 import classNames from 'classnames'
+import restartIcon from '../../images/bwIcons/restart-icon.png'
+import finishIcon from '../../images/bwIcons/finish-icon.png'
 
 interface Props {
     lines: UserPoemType
@@ -40,9 +42,18 @@ const UserPoem: FC<Props> = ({
 
     const cx = classNames.bind(styles)
 
+    const restartClicked = () => {
+        setLines([])
+        setTitle("")
+        setAuthor("")
+    }
+
     return (
         <div className={styles.poem_container + " " + styles.user_poem}>
-            <button onClick={savePoem}>Save</button>
+            <div className={styles.actions}>
+                <img onClick={restartClicked} src={restartIcon} className={styles.action_button} />
+                <img onClick={savePoem} src={finishIcon} className={styles.action_button} />
+            </div>
             <input type="text" placeholder="untitled" className={cx(styles.clean_input, styles.poem_line, styles.poem_title)} value={title} onChange={handleTitleChange} />
             <div className={styles.poem_line}>by <input type="text" placeholder="your name" className={cx(styles.clean_input)} value={author} onChange={handleAuthorChange} /></div>
             {

@@ -19,7 +19,7 @@
 
 .user_poem {
     position: absolute;
-    top: 64px;
+    top: 48px;
     left: 64px;
     margin-left: 0;
 }
@@ -149,4 +149,20 @@
     100% {
         opacity: 0;
     }
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action_button {
+    height: 75px;
+    width: auto;
+    transition: transform 0.5s ease;
+}
+
+.action_button:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
 }

@@ -1,29 +1,22 @@
-import React, { FC, useEffect, Dispatch, SetStateAction } from 'react'
+import React, { FC, useEffect } from 'react'
 import FadeText from '../components/welcome/FadeText'
 import { PoemType } from '../utils/types/PoemTypes'
 import styles from '../styles/WelcomePage.module.css'
 import FadeIn from 'react-fade-in/lib/FadeIn'
 
 import { welcomePoem } from '../utils/data/welcome_poem'
+import { useNavigate } from 'react-router-dom'
 
-interface Props {
-    setCurrentPage: Dispatch<SetStateAction<number>>
-}
+const WelcomePage: FC = () => {
 
-const WelcomePage: FC<Props> = ({ setCurrentPage }) => {
+    const navigate = useNavigate()
 
     const [visiblePoem, setVisiblePoem] = React.useState<PoemType>([])
     const [currentLine, setCurrentLine] = React.useState<number>(0)
 
-    // useEffect(() => {
-    //     const test = async () => {
-    //         let response = await fetch('http://localhost:3001/api/poems')
-    //         let data = await response.json()
-    //         console.log(data)
-    //     }
-
-    //     test()
-    // }, [])
+    const goToPoemView = () => {
+        navigate("/view")
+    }
 
     useEffect(() => {
         if (currentLine < welcomePoem.length) {
@@ -46,7 +39,7 @@ const WelcomePage: FC<Props> = ({ setCurrentPage }) => {
                             isLink={line.isLink}
                             isNewStanza={line.isNewStanza}
                             isFirstLine={line.isFirstLine}
-                            onClick = {() => setCurrentPage(prevPage => prevPage + 1)}
+                            onClick={goToPoemView}
                         />
                     )
                 }

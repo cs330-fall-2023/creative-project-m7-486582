@@ -15,6 +15,10 @@ const GalleryPage: FC = () => {
 
     useEffect(() => {
         getPoems()
+
+        return () => {
+            setAllPoems([])
+        }
     }, [])
 
     return (
@@ -23,10 +27,11 @@ const GalleryPage: FC = () => {
             {allPoems.map(poem => {
                 return (
                     <PoemCard 
+                        key={poem._id.toString()}
                         title={poem.title}
                         author={poem.author}
                         _id={poem._id}
-                        key={poem._id.toString()}
+                        poemLevels={poem.poemLevels}
                     />
                 )
             })}

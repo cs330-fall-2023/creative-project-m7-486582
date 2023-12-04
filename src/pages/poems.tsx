@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import UserPoem from '../components/poem_creation/UserPoem'
 import { PoemType, PoemGraphicsType, UserPoemType, UserLineType } from '../utils/types/PoemTypes'
 import { allPoems, allPoemGraphics } from '../utils/data/poems_wrapper'
@@ -18,6 +18,7 @@ import coldLeavesSound from '../sounds/poem-sounds-coldleaves.mp3'
 import friendshipSound from '../sounds/poem-sounds-friendship.mp3'
 import desireSound from '../sounds/poem-sounds-desire.mp3'
 import { useLocation } from 'react-router-dom'
+import Sound from 'react-native-sound'
 
 const PoemsPage: FC = () => {
     const [lines, setLines] = useState<UserPoemType>([])
@@ -113,10 +114,10 @@ const PoemsPage: FC = () => {
     }
 
     useEffect(() => {
-        if (_id !== "nope") {
+        let searchParams = new URLSearchParams(location.search)
+        let _id = searchParams.get('id')
+        if (_id) {
             getPoemData()
-        } else {
-            console.log(_id)
         }
 
         // @ts-ignore
@@ -139,6 +140,9 @@ const PoemsPage: FC = () => {
 
         return () => {
             document.removeEventListener('keydown', keyDownHandler)
+            setTitle("")
+            setAuthor("")
+            setLines([])
         }
     }, [])
 
@@ -263,8 +267,8 @@ const PoemsPage: FC = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                title: title,
-                author: author,
+                title: title.length === 0 ? "untitled" : title ,
+                author: author.length === 0 ? "anonymous" : author,
                 lines: lines,
                 poemLevels: currentPoemLevels
             })

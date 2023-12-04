@@ -25,21 +25,29 @@ export type PoemGraphicsType = {
     alt: string,
 }
 
+export type PoemLevels = {
+    heartIcon: number,
+    fireflies: number,
+    neverendingSpring: number,
+    summerNights: number,
+    mirrorMirror: number,
+    lotusEater: number,
+    coldLeaves: number,
+    friendship: number,
+    desire: number,
+    total: number
+}
+
 export type GalleryPoemType = {
     lines: UserLineType[],
     author: string,
     title: string,
     _id: ObjectId,
-    poemLevels: {
-        heartIcon: number,
-        fireflies: number,
-        neverendingSpring: number,
-        summerNights: number,
-        mirrorMirror: number,
-        lotusEater: number,
-        coldLeaves: number,
-        friendship: number,
-        desire: number,
-        total: number
-    }
+    poemLevels: PoemLevels
 }
+
+export type ChartData = {
+    title: string,
+    value: number,
+    color: string
+}[]

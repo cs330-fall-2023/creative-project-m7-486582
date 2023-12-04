@@ -31,6 +31,7 @@ const FadeText: FC<Props> = ({
         isNewStanza && styles.new_stanza,
         isFirstLine && styles.first_line
     )
+    console.log(text)
 
     return (
         <div className={className} style={style} onClick={onClick}>{text}</div>
