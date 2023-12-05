@@ -17,9 +17,10 @@ import lotusEaterSound from '../sounds/poem-sounds-lotuseater.mp3'
 import coldLeavesSound from '../sounds/poem-sounds-coldleaves.mp3'
 import friendshipSound from '../sounds/poem-sounds-friendship.mp3'
 import desireSound from '../sounds/poem-sounds-desire.mp3'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Canvas from '../components/poem_creation/Canvas'
 import { RectangleType } from '../utils/types/CanvasTypes'
+import profileIcon from '../images/bwIcons/profile_icon.png'
 
 const PoemsPage: FC = () => {
     const [lines, setLines] = useState<UserPoemType>([])
@@ -54,6 +55,7 @@ const PoemsPage: FC = () => {
     const location = useLocation()
     const [savePressed, setSavePressed] = useState<boolean>(false)
     const [currentPoemId, setCurrentPoemId] = useState<string>("")
+    const nav = useNavigate()
 
     const addStanza = () => {
         setNextIsNewStanza(true)
@@ -220,6 +222,10 @@ const PoemsPage: FC = () => {
         }
     }
 
+    const goToAccountPage = () => {
+        nav('/account')
+    }
+
     const rebalanceSound = () => {
         if (heartIconData.sound) {
             if (currentPoemLevels['heartIcon'] === 0) {
@@ -384,6 +390,7 @@ const PoemsPage: FC = () => {
                     setRectangles={setRectangles}
                 />
             }
+            <img onClick={goToAccountPage} src={profileIcon} className={styles.profile_icon} />
         </div>
     )
 }

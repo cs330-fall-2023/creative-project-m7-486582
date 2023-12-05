@@ -1,5 +1,5 @@
 const express = require('express')
-const { Poem, UserPoem } = require('./models/schema')
+const { UserPoem, User } = require('./models/schema')
 const app = express()
 const port = 3001
 const cors = require('cors')
@@ -42,6 +42,16 @@ app.get('/api/poem', async (req, res) => {
         const _id = req.query.id
         const response = await UserPoem.find({ _id: _id })
         res.json(response)
+    } catch (err) {
+        console.error(err)
+    }
+})
+
+app.post('/api/login', async (req, res) => {
+    try {
+        const uid = req.body.uid
+        const response = await UserPoem.find({ _id: uid })
+        console.log(response)
     } catch (err) {
         console.error(err)
     }

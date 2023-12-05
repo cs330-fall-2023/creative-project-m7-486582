@@ -1,4 +1,5 @@
 
+const { ObjectId } = require('mongodb')
 const mongoose = require('mongoose')
 
 const poemSchema = new mongoose.Schema({
@@ -45,6 +46,14 @@ const userPoemSchema = new mongoose.Schema({
     rectangles: [rectangleSchema],
 })
 
+const userSchema = new mongoose.Schema({
+    _id: ObjectId,
+    username: String,
+    hashPassword: String,
+    poemIds: [ObjectId],
+})
+
 const Poem = mongoose.model('Poem', poemSchema);
 const UserPoem = mongoose.model('UserPoem', userPoemSchema);
-module.exports = { Poem, UserPoem }
+const User = mongoose.model('User', userSchema);
+module.exports = { Poem, UserPoem, User }

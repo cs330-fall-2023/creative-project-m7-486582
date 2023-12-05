@@ -160,11 +160,15 @@
 .action_button {
     height: 75px;
     width: auto;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, filter 0.5s ease;
 }
 
 .action_button:hover {
     cursor: pointer;
+}
+
+.save_button:hover {
+    filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
 }
 
 .restart_button:hover,
@@ -174,4 +178,16 @@
 
 .explore_button:hover {
     transform: rotate(-45deg);
+}
+
+.profile_icon {
+    position: absolute;
+    bottom: 48px;
+    left: 48px;
+    width: 100px;
+    height: auto;
+}
+
+.profile_icon:hover {
+    cursor: pointer;
 }
