@@ -18,7 +18,6 @@ import coldLeavesSound from '../sounds/poem-sounds-coldleaves.mp3'
 import friendshipSound from '../sounds/poem-sounds-friendship.mp3'
 import desireSound from '../sounds/poem-sounds-desire.mp3'
 import { useLocation } from 'react-router-dom'
-import Sound from 'react-native-sound'
 
 const PoemsPage: FC = () => {
     const [lines, setLines] = useState<UserPoemType>([])
@@ -58,8 +57,12 @@ const PoemsPage: FC = () => {
 
     const addLineToLevelsAndPlay = (line: UserLineType) => {
         const poemTitle = textColorToPoem[line.textColor]
+        console.log(currentPoemLevels)
+        // @ts-ignore
+        console.log(currentPoemLevels[poemTitle])
         // @ts-ignore
         if (currentPoemLevels[poemTitle] === 0) {
+            console.log("Playing sound")
             playSound(poemTitle)
         }
         setCurrentPoemLevels(prev => {
@@ -107,7 +110,6 @@ const PoemsPage: FC = () => {
         })
         let data = await response.json()
         let poem = data[0]
-        console.log(poem)
         setTitle(poem.title)
         setAuthor(poem.author)
         setLines(poem.lines)
@@ -153,26 +155,27 @@ const PoemsPage: FC = () => {
     }, [currentPoemLevels])
 
     const playSound = (poemTitle: string) => {
+        console.log("here")
         switch (poemTitle) {
-            case 'heart-icon':
+            case 'heartIcon':
                 playHeartIcon()
                 break
             case 'fireflies':
                 playFireflies()
                 break
-            case 'neverending-spring':
+            case 'neverendingSpring':
                 playNeverendingSpring()
                 break
-            case 'summer-nights':
+            case 'summerNights':
                 playSummerNights()
                 break
-            case 'mirror-mirror':
+            case 'mirrorMirror':
                 playMirrorMirror()
                 break
-            case 'lotus-eater':
+            case 'lotusEater':
                 playLotusEater()
                 break
-            case 'cold-leaves':
+            case 'coldLeaves':
                 playColdLeaves()
                 break
             case 'friendship':
@@ -267,7 +270,7 @@ const PoemsPage: FC = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                title: title.length === 0 ? "untitled" : title ,
+                title: title.length === 0 ? "untitled" : title,
                 author: author.length === 0 ? "anonymous" : author,
                 lines: lines,
                 poemLevels: currentPoemLevels
