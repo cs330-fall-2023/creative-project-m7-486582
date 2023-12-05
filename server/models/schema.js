@@ -29,11 +29,20 @@ const levelsSchema = new mongoose.Schema({
     desire: Number,
     total: Number
 })
+const rectangleSchema = new mongoose.Schema({
+    top: Number,
+    left: Number,
+    width: Number,
+    height: Number,
+    backgroundUrl: String,
+    key: String
+})
 const userPoemSchema = new mongoose.Schema({
     lines: [userLineSchema],
     title: String,
     author: String,
-    poemLevels: levelsSchema
+    poemLevels: levelsSchema,
+    rectangles: [rectangleSchema],
 })
 
 const Poem = mongoose.model('Poem', poemSchema);

@@ -22,4 +22,16 @@ const textColorToPoem = {
     [desire]: 'desire'
 }
 
-export { textColorToPoem }
+const textColorToBackgroundUrl = {
+    [heartIcon]: allPoemGraphics[0].backgroundSrc,
+    [fireflies]: allPoemGraphics[1].backgroundSrc,
+    [neverendingSpring]: allPoemGraphics[2].backgroundSrc,
+    [summerNights]: allPoemGraphics[3].backgroundSrc,
+    [mirrorMirror]: allPoemGraphics[4].backgroundSrc,
+    [lotusEater]: allPoemGraphics[5].backgroundSrc,
+    [coldLeaves]: allPoemGraphics[6].backgroundSrc,
+    [friendship]: allPoemGraphics[7].backgroundSrc,
+    [desire]: allPoemGraphics[8].backgroundSrc
+}
+
+export { textColorToPoem, textColorToBackgroundUrl }

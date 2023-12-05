@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import defaultBackground from '../../images/backgrounds/cold-leaves-background-noise.png'
 import { PoemType, PoemGraphicsType, UserPoemType, UserLineType } from '../../utils/types/PoemTypes';
 import Poem from './Poem';
+import { RectangleType } from '../../utils/types/CanvasTypes';
 
 
 interface Props {
@@ -14,6 +15,7 @@ interface Props {
     nextIsNewStanza: boolean
     setNextIsNewStanza: Dispatch<SetStateAction<boolean>>
     addLineToLevels: (line: UserLineType) => void
+    setRectangles: Dispatch<SetStateAction<RectangleType[]>>
 }
 
 const PoemSidebar: FC<Props> = ({
@@ -23,7 +25,8 @@ const PoemSidebar: FC<Props> = ({
     setLines,
     nextIsNewStanza,
     setNextIsNewStanza,
-    addLineToLevels
+    addLineToLevels,
+    setRectangles
 }) => {
     const cx = classNames.bind(styles)
 
@@ -39,6 +42,7 @@ const PoemSidebar: FC<Props> = ({
                 nextIsNewStanza={nextIsNewStanza}
                 setNextIsNewStanza={setNextIsNewStanza}
                 addLineToLevels={addLineToLevels}
+                setRectangles={setRectangles}
             />
         </div>
     )

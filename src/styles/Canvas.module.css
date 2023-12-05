@@ -1,0 +1,15 @@
+.canvas {
+    /* border: 1px solid black; */
+    width: 25%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(0, -50%);
+}
+
+.rectangle {
+    position: absolute;
+    background-size: cover;
+    opacity: 0.75
+}

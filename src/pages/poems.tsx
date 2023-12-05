@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react'
 import UserPoem from '../components/poem_creation/UserPoem'
-import { PoemType, PoemGraphicsType, UserPoemType, UserLineType } from '../utils/types/PoemTypes'
+import { PoemType, PoemGraphicsType, UserPoemType, UserLineType, PoemLevels } from '../utils/types/PoemTypes'
 import { allPoems, allPoemGraphics } from '../utils/data/poems_wrapper'
 import { textColorToPoem } from '../utils/data/text_colors'
 import PoemIcon from '../components/poem_creation/PoemIcon'
@@ -18,6 +18,8 @@ import coldLeavesSound from '../sounds/poem-sounds-coldleaves.mp3'
 import friendshipSound from '../sounds/poem-sounds-friendship.mp3'
 import desireSound from '../sounds/poem-sounds-desire.mp3'
 import { useLocation } from 'react-router-dom'
+import Canvas from '../components/poem_creation/Canvas'
+import { RectangleType } from '../utils/types/CanvasTypes'
 
 const PoemsPage: FC = () => {
     const [lines, setLines] = useState<UserPoemType>([])
@@ -39,6 +41,7 @@ const PoemsPage: FC = () => {
         desire: 0,
         total: 0
     })
+    const [rectangles, setRectangles] = useState<RectangleType[]>([])
     const [playHeartIcon, heartIconData] = useSound(heartIconSound)
     const [playFireflies, firefliesData] = useSound(firefliesSound)
     const [playNeverendingSpring, neverendingSpringData] = useSound(neverendingSpringSound)
@@ -49,7 +52,8 @@ const PoemsPage: FC = () => {
     const [playFriendship, friendshipData] = useSound(friendshipSound)
     const [playDesire, desireData] = useSound(desireSound)
     const location = useLocation()
-    const { _id } = (location.state as any) || { _id: "nope" }
+    const [savePressed, setSavePressed] = useState<boolean>(false)
+    const [currentPoemId, setCurrentPoemId] = useState<string>("")
 
     const addStanza = () => {
         setNextIsNewStanza(true)
@@ -101,26 +105,43 @@ const PoemsPage: FC = () => {
         })
     }
 
-    const getPoemData = async () => {
-        let response = await fetch(`http://localhost:3001/api/poem?id=${_id}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        let data = await response.json()
-        let poem = data[0]
-        setTitle(poem.title)
-        setAuthor(poem.author)
-        setLines(poem.lines)
-    }
+
 
     useEffect(() => {
         let searchParams = new URLSearchParams(location.search)
         let _id = searchParams.get('id')
         if (_id) {
-            getPoemData()
+
+            const getPoemData = async (_id: string) => {
+                let response = await fetch(`http://localhost:3001/api/poem?id=${_id}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                if (!response.ok) {
+                    console.error("Error getting poem")
+                } else {
+                    let data = await response.json()
+                    let poem = data[0]
+                    setTitle(poem.title)
+                    setAuthor(poem.author)
+                    setLines(poem.lines)
+                    setCurrentPoemLevels(() => {
+                        restartSounds(poem.poemLevels)
+                        return poem.poemLevels
+                    })
+                    setRectangles(poem.rectangles)
+                }
+            }
+
+            getPoemData(_id)
+                .catch(err => {
+                    console.log(err)
+                })
         }
+
+
 
         // @ts-ignore
         const keyDownHandler = (e) => {
@@ -153,6 +174,16 @@ const PoemsPage: FC = () => {
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentPoemLevels])
+
+    const restartSounds = (poemLevels: PoemLevels) => {
+        for (const poemTitle in poemLevels) {
+            // @ts-ignore
+            if (poemLevels[poemTitle] !== 0) {
+                playSound(poemTitle)
+            }
+        }
+        rebalanceSound()
+    }
 
     const playSound = (poemTitle: string) => {
         console.log("here")
@@ -263,6 +294,11 @@ const PoemsPage: FC = () => {
         }
     }
 
+    const sharePoem = async () => {
+        const url = `http://localhost:3000/view?id=${currentPoemId}`
+        navigator.clipboard.writeText(url)
+    }
+
     const savePoem = async () => {
         let response = await fetch('http://localhost:3001/api/save', {
             method: 'POST',
@@ -273,11 +309,16 @@ const PoemsPage: FC = () => {
                 title: title.length === 0 ? "untitled" : title,
                 author: author.length === 0 ? "anonymous" : author,
                 lines: lines,
-                poemLevels: currentPoemLevels
+                poemLevels: currentPoemLevels,
+                rectangles: rectangles
             })
         })
         if (!response.ok) {
             console.error("Error saving poem")
+        } else {
+            let data = await response.json()
+            setCurrentPoemId(data._id.toString())
+            setSavePressed(true)
         }
     }
 
@@ -301,35 +342,48 @@ const PoemsPage: FC = () => {
                         nextIsNewStanza={nextIsNewStanza}
                         removeLineFromLevels={removeLineFromLevels}
                         savePoem={savePoem}
+                        setRectangles={setRectangles}
+                        savePressed={savePressed}
+                        sharePoem={sharePoem}
                     />
             }
-            <div className={styles.poem_icons}>
-                {
-                    allPoemGraphics.map((poemGraphics, index) => {
-                        return (
-                            <PoemIcon
-                                key={poemGraphics.alt}
-                                poem={allPoems[index]}
-                                poemGraphics={poemGraphics}
-                                isSidebarOpen={isSidebarOpen}
-                                setIsSidebarOpen={setIsSidebarOpen}
-                                currentPoem={currentPoem}
-                                setCurrentPoem={setCurrentPoem}
-                                setCurrentPoemGraphics={setCurrentPoemGraphics}
-                            />
-                        )
-                    })
-                }
-            </div>
-            <PoemSidebar
-                poem={currentPoem}
-                poemGraphics={currentPoemGraphics}
-                isSidebarOpen={isSidebarOpen}
-                setLines={setLines}
-                nextIsNewStanza={nextIsNewStanza}
-                setNextIsNewStanza={setNextIsNewStanza}
-                addLineToLevels={addLineToLevelsAndPlay}
+            <Canvas
+                rectangles={rectangles}
             />
+            {
+                !savePressed &&
+                <div className={styles.poem_icons}>
+                    {
+                        allPoemGraphics.map((poemGraphics, index) => {
+                            return (
+                                <PoemIcon
+                                    key={poemGraphics.alt}
+                                    poem={allPoems[index]}
+                                    poemGraphics={poemGraphics}
+                                    isSidebarOpen={isSidebarOpen}
+                                    setIsSidebarOpen={setIsSidebarOpen}
+                                    currentPoem={currentPoem}
+                                    setCurrentPoem={setCurrentPoem}
+                                    setCurrentPoemGraphics={setCurrentPoemGraphics}
+                                />
+                            )
+                        })
+                    }
+                </div>
+            }
+            {
+                !savePressed &&
+                <PoemSidebar
+                    poem={currentPoem}
+                    poemGraphics={currentPoemGraphics}
+                    isSidebarOpen={isSidebarOpen}
+                    setLines={setLines}
+                    nextIsNewStanza={nextIsNewStanza}
+                    setNextIsNewStanza={setNextIsNewStanza}
+                    addLineToLevels={addLineToLevelsAndPlay}
+                    setRectangles={setRectangles}
+                />
+            }
         </div>
     )
 }
