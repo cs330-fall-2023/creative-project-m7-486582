@@ -174,7 +174,6 @@ const PoemsPage: FC = () => {
     useEffect(() => {
         rebalanceSound()
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentPoemLevels])
 
     const restartSounds = (poemLevels: PoemLevels) => {

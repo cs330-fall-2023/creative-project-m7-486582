@@ -5,6 +5,7 @@ const port = 3001
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const bcryptjs = require('bcryptjs')
 mongoose.connect('mongodb+srv://cedney:Malachi97@cluster0.ibsy3ti.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -49,10 +50,48 @@ app.get('/api/poem', async (req, res) => {
 
 app.post('/api/login', async (req, res) => {
     try {
-        const uid = req.body.uid
-        const response = await UserPoem.find({ _id: uid })
-        console.log(response)
+        const { username, password } = req.body
+        const hash = await bcryptjs.hash(password, 10)
+        const user = await User.find({ username: username })
+        if (bcryptjs.compare(password, hash)) {
+            res.json({
+                ok: true,
+                user: user
+            })
+        } else {
+            res.json({
+                ok: false,
+                statusText: 'Invalid username or password'
+            })
+        }
     } catch (err) {
         console.error(err)
+    }
+})
+
+app.post('/api/signup', async (req, res) => {
+    try {
+        const { username, password } = req.body
+        const hash = await bcryptjs.hash(password, 10)
+        const checkUser = await User.find({ username: username })
+        console.log(checkUser)
+        if (checkUser.length > 0) {
+            res.json({
+                ok: false,
+                statusText: 'Username already exists'
+            })
+        } else {
+            const user = new User({
+                username: username,
+                password: hash
+            })
+            await user.save()
+            res.json({
+                ok: true,
+                user: user
+            })
+        }
+    } catch (error) {
+        console.error(error)
     }
 })

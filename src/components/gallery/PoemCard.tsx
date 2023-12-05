@@ -25,22 +25,21 @@ const PoemCard: FC<Props> = ({
 
     useEffect(() => {
         let data = []
-        let i = 0
         for (let level in poemLevels) {
-            if (level != "_id" && level != "total") {
+            if (level !== "_id" && level !== "total") {
                 data.push({
                     title: level,
                     value: poemLevels[level as keyof PoemLevels],
                     color: Object.keys(textColorToPoem).find(key => textColorToPoem[key as keyof typeof textColorToPoem] === level) as string
                 })
             }
-            ++i
         }
         setChartData(data)
 
         return () => {
             setChartData([])
         }
+
     }, [])
 
     return (
@@ -52,7 +51,7 @@ const PoemCard: FC<Props> = ({
                         <div className={styles.author}>{author}</div>
                     </div>
                     <h3>{_id.toString()}</h3>
-                    <PieChart 
+                    <PieChart
                         data={chartData}
                     />
                 </div>

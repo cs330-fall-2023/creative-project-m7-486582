@@ -1,22 +1,23 @@
 import React, { FC, useEffect, useState } from 'react'
 
+import AuthModal from '../components/account/AuthModal'
 
-const AccountPage = () => {
+const AccountPage: FC = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
 
     useEffect(() => {
-        let hashedPassword = localStorage.getItem("hashedPassword")
         let uid = localStorage.getItem("uid")
-        if (hashedPassword && uid) {
+        if (uid) {
             setIsAuthenticated(true)
         } else {
             setIsAuthenticated(false)
         }
+
     }, [])
 
     return (
         <div>
-            <h1>Account Page</h1>
+            <AuthModal />
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import './App.css';
 import WelcomePage from './pages/welcome';
 import PoemsPage from './pages/poems'

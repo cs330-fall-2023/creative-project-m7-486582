@@ -47,7 +47,6 @@ const userPoemSchema = new mongoose.Schema({
 })
 
 const userSchema = new mongoose.Schema({
-    _id: ObjectId,
     username: String,
     hashPassword: String,
     poemIds: [ObjectId],
