@@ -199,7 +199,7 @@ const firefliesGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: "#fcf403",
+    textColor: "#00095C",
     alt: "Fireflies Icon"
 }
 

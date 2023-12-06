@@ -186,9 +186,11 @@
     left: 48px;
     width: 100px;
     height: auto;
-    opacity: 0.5;
+    /* opacity: 0.5; */
+    transition: filter 0.5s ease;
 }
 
 .profile_icon:hover {
     cursor: pointer;
+    filter: invert(23%) sepia(100%) saturate(2065%) hue-rotate(225deg) brightness(92%) contrast(98%);
 }

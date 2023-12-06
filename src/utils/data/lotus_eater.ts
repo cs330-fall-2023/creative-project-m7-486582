@@ -1,5 +1,5 @@
 import { PoemType, PoemGraphicsType } from "../types/PoemTypes";
-import backgroundSrc from '../../images/backgrounds/cold-leaves-background-noise.png'
+import backgroundSrc from '../../images/backgrounds/fireflies-background.png'
 import colorIconSrc from '../../images/colorIcons/poem-nav-icons-lotus.png'
 import bwIconSrc from '../../images/bwIcons/poem-nav-icons-lotus-bw.png'
 
@@ -206,7 +206,7 @@ const lotusEaterGraphics: PoemGraphicsType = {
     backgroundSrc,
     colorIconSrc,
     bwIconSrc,
-    textColor: '#77787A',
+    textColor: '#a3142b',
     alt: 'Lotus-Eater'
 }
 
