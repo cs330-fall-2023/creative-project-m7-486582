@@ -34,4 +34,16 @@ const textColorToBackgroundUrl = {
     [desire]: allPoemGraphics[8].backgroundSrc
 }
 
-export { textColorToPoem, textColorToBackgroundUrl }
+const titleToLabel = {
+    heartIcon: 'hearticon.png',
+    fireflies: 'Fireflies',
+    neverendingSpring: 'Neverending Spring',
+    summerNights: 'summer nights',
+    mirrorMirror: 'mirror mirror',
+    lotusEater: 'Lotus-Eater',
+    coldLeaves: "The Cold Doesn't Leave in Spring",
+    friendship: 'Friendship',
+    desire: 'Desire'
+}
+
+export { textColorToPoem, textColorToBackgroundUrl, titleToLabel }

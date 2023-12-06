@@ -1,3 +1,14 @@
+.page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    overflow: auto;
+    margin-top: 32px;
+}
+
 .overlay {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
@@ -37,4 +48,49 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+.account_title {
+    font-size: 32px;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.poem_list_title {
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+.create_text {
+    text-decoration: underline;
+}
+
+.create_text:hover {
+    cursor: pointer;
+}
+
+.action_buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.action_container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.action_button {
+    height: 64px;
+}
+
+.action_button:hover {
+    cursor: pointer;
+}
+
+.action_button_text:hover {
+    cursor: pointer;
 }

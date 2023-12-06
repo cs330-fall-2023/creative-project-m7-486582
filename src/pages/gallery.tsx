@@ -2,13 +2,26 @@ import React, { FC, useEffect, useState } from 'react'
 import { GalleryPoemType } from '../utils/types/PoemTypes'
 import PoemCard from '../components/gallery/PoemCard'
 import styles from '../styles/GalleryPage.module.css'
+import { UserType } from '../utils/types/UserTypes'
 
-const GalleryPage: FC = () => {
+interface Props {
+    user: UserType | null
+}
 
-    const [allPoems, setAllPoems] = useState<GalleryPoemType[]>([]) 
+const GalleryPage: FC<Props> = ({
+    user
+}) => {
+
+    const [allPoems, setAllPoems] = useState<GalleryPoemType[]>([])
+    const [shownPoems, setShownPoems] = useState<GalleryPoemType[]>(allPoems)
 
     const getPoems = async () => {
-        let response = await fetch('http://localhost:3001/api/poems')
+        let response = await fetch('http://localhost:3001/api/poems', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
         let data = await response.json()
         setAllPoems(data)
     }
@@ -26,7 +39,7 @@ const GalleryPage: FC = () => {
             <h1 className={styles.page_title}>Gallery</h1>
             {allPoems.map(poem => {
                 return (
-                    <PoemCard 
+                    <PoemCard
                         key={poem._id.toString()}
                         title={poem.title}
                         author={poem.author}

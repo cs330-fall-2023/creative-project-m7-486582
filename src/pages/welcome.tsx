@@ -6,6 +6,7 @@ import FadeIn from 'react-fade-in/lib/FadeIn'
 
 import { welcomePoem } from '../utils/data/welcome_poem'
 import { useNavigate } from 'react-router-dom'
+import { UserType } from '../utils/types/UserTypes'
 
 const WelcomePage: FC = () => {
 
@@ -32,7 +33,7 @@ const WelcomePage: FC = () => {
             {visiblePoem.map((line, index) => {
                 if (index === welcomePoem.length - 1) {
                     return (
-                        <FadeText 
+                        <FadeText
                             key={line.text}
                             text={line.text}
                             isTitle={line.isTitle}
@@ -44,7 +45,7 @@ const WelcomePage: FC = () => {
                     )
                 }
                 return (
-                    <FadeText 
+                    <FadeText
                         key={line.text}
                         text={line.text}
                         isTitle={line.isTitle}

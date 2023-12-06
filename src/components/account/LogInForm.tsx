@@ -1,7 +1,14 @@
-import React, { FC, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import styles from '../../styles/Account.module.css'
+import { UserType } from '../../utils/types/UserTypes'
 
-const LogInForm: FC = () => {
+interface Props {
+    setUser: Dispatch<SetStateAction<UserType | null>>
+}
+
+const LogInForm: FC<Props> = ({
+    setUser
+}) => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -28,8 +35,11 @@ const LogInForm: FC = () => {
             return
         }
 
+        console.log(data)
+
         let uid = data.user[0]._id
         localStorage.setItem("uid", uid.toString())
+        setUser(data.user[0])
     }
 
     const trimFields = () => {

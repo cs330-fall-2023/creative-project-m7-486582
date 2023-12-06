@@ -1,23 +1,33 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 
 import AuthModal from '../components/account/AuthModal'
+import AccountDisplay from '../components/account/AccountDisplay'
+import { UserType } from '../utils/types/UserTypes'
 
-const AccountPage: FC = () => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
+interface Props {
+    user: UserType | null
+    setUser: Dispatch<SetStateAction<UserType | null>>
+}
 
-    useEffect(() => {
-        let uid = localStorage.getItem("uid")
-        if (uid) {
-            setIsAuthenticated(true)
-        } else {
-            setIsAuthenticated(false)
-        }
+const AccountPage: FC<Props> = ({
+    user,
+    setUser
+}) => {
 
-    }, [])
 
     return (
         <div>
-            <AuthModal />
+            {
+                !user ?
+                    <AuthModal
+                        setUser={setUser}
+                    />
+                    :
+                    <AccountDisplay
+                        user={user}
+                        setUser={setUser}
+                    />
+            }
         </div>
     )
 }

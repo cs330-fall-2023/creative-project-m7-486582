@@ -186,6 +186,7 @@
     left: 48px;
     width: 100px;
     height: auto;
+    opacity: 0.5;
 }
 
 .profile_icon:hover {

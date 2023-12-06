@@ -1,7 +1,15 @@
-import React, { FC, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import styles from '../../styles/Account.module.css'
+import { set } from 'mongoose'
+import { UserType } from '../../utils/types/UserTypes'
 
-const SignUpForm: FC = () => {
+interface Props {
+    setUser: Dispatch<SetStateAction<UserType | null>>
+}
+
+const SignUpForm: FC<Props> = ({
+    setUser
+}) => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -35,7 +43,7 @@ const SignUpForm: FC = () => {
         }
 
         localStorage.setItem("uid", data.user._id.toString())
-
+        setUser(data.user)
     }
 
     const trimFields = () => {

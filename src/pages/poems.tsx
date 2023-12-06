@@ -20,9 +20,16 @@ import desireSound from '../sounds/poem-sounds-desire.mp3'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Canvas from '../components/poem_creation/Canvas'
 import { RectangleType } from '../utils/types/CanvasTypes'
-import profileIcon from '../images/bwIcons/profile_icon.png'
+import profileIcon from '../images/bwIcons/profile-icon-2.png'
+import { UserType } from '../utils/types/UserTypes'
 
-const PoemsPage: FC = () => {
+interface Props {
+    user: UserType | null
+}
+
+const PoemsPage: FC<Props> = ({
+    user
+}) => {
     const [lines, setLines] = useState<UserPoemType>([])
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false)
     const [currentPoem, setCurrentPoem] = useState<PoemType | undefined>(undefined)
@@ -106,8 +113,6 @@ const PoemsPage: FC = () => {
             }
         })
     }
-
-
 
     useEffect(() => {
         let searchParams = new URLSearchParams(location.search)
@@ -315,7 +320,8 @@ const PoemsPage: FC = () => {
                 author: author.length === 0 ? "anonymous" : author,
                 lines: lines,
                 poemLevels: currentPoemLevels,
-                rectangles: rectangles
+                rectangles: rectangles,
+                uid: user ? user._id : undefined
             })
         })
         if (!response.ok) {
